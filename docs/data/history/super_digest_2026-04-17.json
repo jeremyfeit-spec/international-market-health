@@ -1,0 +1,41 @@
+{
+  "week_end": "2026-04-17",
+  "week_start": "2026-04-11",
+  "score": 4.9,
+  "components": {
+    "competitor_pressure": 0,
+    "regulatory_pressure": -0.1,
+    "cross_signal_magnifier": 0,
+    "voc_sentiment": 0.0,
+    "intuit_offensive_moves": 0,
+    "feet_on_the_ground": 0.0
+  },
+  "explainers": [],
+  "headline": "Brazil tax-reform technical note published; Italy SDI v1.9.1 specs released.",
+  "why_it_moved": "Quiet week — score holds at neutral baseline.",
+  "data_quality": "reconstructed",
+  "kpis": {
+    "competitor_signals": 0,
+    "tier1_signals": 0,
+    "regulatory_changes": 1,
+    "urgent_mandates": 1,
+    "cross_signals": 0
+  },
+  "competitors": [],
+  "regulatory": [
+    {
+      "country": "Brazil",
+      "iso": "BR",
+      "region": "LATAM",
+      "topic": "E-Invoicing",
+      "title": "Brazil NF-e/NFC-e Technical Note 2025.002 v.1.35 — IBS/CBS layout published",
+      "summary": "Brazil's tax reform moves into system design — NF-e and NFC-e updated for IBS/CBS and selective tax. Layout effective from 2026-01-01.",
+      "status": "upcoming",
+      "effective_date": "2026-01-01",
+      "source_url": "https://www.vatupdate.com/2026/04/17/brazils-tax-reform-moves-into-system-design-nf-e-and-nfc-e-updated-for-ibs-cbs-and-selective-tax/",
+      "urgent": true
+    }
+  ],
+  "cross_signals": [],
+  "generated_at": "2026-05-01T21:57:52Z"
+}

@@ -1,0 +1,28 @@
+{
+  "week_end": "2026-04-10",
+  "week_start": "2026-04-04",
+  "score": 5.0,
+  "components": {
+    "competitor_pressure": 0,
+    "regulatory_pressure": 0,
+    "cross_signal_magnifier": 0,
+    "voc_sentiment": 0.0,
+    "intuit_offensive_moves": 0,
+    "feet_on_the_ground": 0.0
+  },
+  "explainers": [],
+  "headline": "Quiet week — accountants absorbing 1 April mandates; no major competitor moves.",
+  "why_it_moved": "Quiet week — score holds at neutral baseline.",
+  "data_quality": "reconstructed",
+  "kpis": {
+    "competitor_signals": 0,
+    "tier1_signals": 0,
+    "regulatory_changes": 0,
+    "urgent_mandates": 0,
+    "cross_signals": 0
+  },
+  "competitors": [],
+  "regulatory": [],
+  "cross_signals": [],
+  "generated_at": "2026-05-01T21:57:52Z"
+}

@@ -1,0 +1,67 @@
+{
+  "week_end": "2026-03-27",
+  "week_start": "2026-03-21",
+  "score": 4.4,
+  "components": {
+    "competitor_pressure": 0,
+    "regulatory_pressure": -0.6,
+    "cross_signal_magnifier": 0,
+    "voc_sentiment": 0.0,
+    "intuit_offensive_moves": 0,
+    "feet_on_the_ground": 0.0
+  },
+  "explainers": [
+    "3 regulatory deadlines within 90 days"
+  ],
+  "headline": "Quiet competitor week, regulatory clock ticks toward 1 April mandates.",
+  "why_it_moved": "Score moved because: 3 regulatory deadlines within 90 days",
+  "data_quality": "reconstructed",
+  "kpis": {
+    "competitor_signals": 0,
+    "tier1_signals": 0,
+    "regulatory_changes": 3,
+    "urgent_mandates": 3,
+    "cross_signals": 0
+  },
+  "competitors": [],
+  "regulatory": [
+    {
+      "country": "India",
+      "iso": "IN",
+      "region": "APAC",
+      "topic": "E-Invoicing",
+      "title": "GST e-invoicing April 2026 mandate finalising — ₹5cr threshold, 30-day reporting, MFA",
+      "summary": "Final-week run-up to GST e-invoicing changes — lower turnover threshold to ₹5cr, mandatory 30-day reporting window for IRP uploads, MFA enforcement on the portal.",
+      "status": "upcoming",
+      "effective_date": "2026-04-01",
+      "source_url": "https://cleartax.in/s/gst-changes-from-april-2026",
+      "urgent": true
+    },
+    {
+      "country": "Singapore",
+      "iso": "SG",
+      "region": "APAC",
+      "topic": "E-Invoicing",
+      "title": "InvoiceNow becomes mandatory for new voluntary GST registrants (1 April)",
+      "summary": "InvoiceNow becomes mandatory for new voluntary GST registrants in Singapore from 1 April 2026, with extension to all GST-registered businesses by April 2031.",
+      "status": "upcoming",
+      "effective_date": "2026-04-01",
+      "source_url": "https://www.iras.gov.sg/news-events/newsroom/committee-of-supply-2026--extension-of-gst-invoicenow-requirement-to-all-gst-registered-businesses-by-april-2031",
+      "urgent": true
+    },
+    {
+      "country": "South Africa",
+      "iso": "ZA",
+      "region": "EMEA",
+      "topic": "E-Invoicing",
+      "title": "South Africa enacts legal framework for e-invoicing under VAT Act",
+      "summary": "Tax Administration Laws Amendment Act 2026 — legal framework for e-invoicing and e-reporting, effective 1 April 2026.",
+      "status": "upcoming",
+      "effective_date": "2026-04-01",
+      "source_url": "https://www.vatupdate.com/2026/04/22/south-africa-enacts-legal-framework-for-e-invoicing-and-e-reporting-under-vat-act/",
+      "urgent": true
+    }
+  ],
+  "cross_signals": [],
+  "generated_at": "2026-05-01T21:57:52Z"
+}

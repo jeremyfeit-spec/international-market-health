@@ -1,0 +1,60 @@
+{
+  "name": "International Market Health Score",
+  "scale": {
+    "min": 0,
+    "max": 10,
+    "neutral_baseline": 5.0,
+    "interpretation": {
+      "0-3": "Acute pressure — multiple competitor and regulatory forces stacking against Intuit in priority markets.",
+      "3-5": "Below baseline — material headwinds outweighing tailwinds.",
+      "5": "Neutral baseline — mixed week, no dominant direction.",
+      "5-7": "Above baseline — Intuit-positive momentum or quiet from competitors and regulators.",
+      "7-10": "Tailwind — Intuit advancing while competitors and regulators are quiet or moving in our favor."
+    }
+  },
+  "priority_markets": ["GB", "DE", "FR", "ES", "IT", "CA", "MX", "BR", "IN", "AU", "SG", "ZA"],
+  "components": {
+    "competitor_pressure": {
+      "tier1_in_priority_market": -0.30,
+      "tier2_in_priority_market": -0.15,
+      "tier3_in_priority_market": -0.05,
+      "non_priority_market": -0.05,
+      "max_total": -1.50,
+      "rationale": "Tier-1 = direct accounting platform competing in a priority market. Tier-2 = adjacent (tax engines, payments). Tier-3 = noise."
+    },
+    "regulatory_pressure": {
+      "urgent_within_90_days": -0.20,
+      "urgent_within_12_months": -0.10,
+      "non_urgent": 0.00,
+      "max_total": -1.00,
+      "rationale": "Urgent = forces product/compliance work. The closer to live, the more it pressures the market."
+    },
+    "cross_signal_magnifier": {
+      "per_market": -0.40,
+      "max_total": -1.20,
+      "rationale": "When competitor + regulatory both move in the same market in the same week, accountants are getting pulled from both sides."
+    },
+    "voc_sentiment": {
+      "intuit_positive_above_peers": 0.30,
+      "intuit_negative_above_peers": -0.30,
+      "neutral_or_no_signal": 0.00,
+      "rationale": "Computed as (Intuit positive-mention share - peer-set average positive-mention share) per platform, averaged across platforms with data."
+    },
+    "intuit_offensive_moves": {
+      "tier1_intuit_announcement": 0.50,
+      "tier2_intuit_announcement": 0.25,
+      "max_total": 1.00,
+      "rationale": "Counter-balance: when Intuit ships, hires, partners, or wins coverage, the score moves up. Default 0 unless you flag a move in intuit_moves[]."
+    },
+    "feet_on_the_ground": {
+      "positive_signal": 0.20,
+      "negative_signal": -0.20,
+      "max_total_positive": 0.60,
+      "max_total_negative": -0.60,
+      "rationale": "From your direct field input — events, customer meetings, market immersions. Default 0 until you populate the FOG section."
+    }
+  },
+  "rounding": "Sum components, clamp to [0, 10], round to one decimal.",
+  "version": "1.0.0",
+  "last_updated": "2026-05-01"
+}

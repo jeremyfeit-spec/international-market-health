@@ -1,0 +1,42 @@
+{
+  "week_end": "2026-03-06",
+  "week_start": "2026-02-28",
+  "score": 4.7,
+  "components": {
+    "competitor_pressure": -0.3,
+    "regulatory_pressure": 0,
+    "cross_signal_magnifier": 0,
+    "voc_sentiment": 0.0,
+    "intuit_offensive_moves": 0,
+    "feet_on_the_ground": 0.0
+  },
+  "explainers": [
+    "1 Tier-1 competitor move in priority markets"
+  ],
+  "headline": "Xero × Anthropic deal signals platform-AI baseline rising; Sage and MYOB respond.",
+  "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+  "data_quality": "reconstructed",
+  "kpis": {
+    "competitor_signals": 1,
+    "tier1_signals": 1,
+    "regulatory_changes": 0,
+    "urgent_mandates": 0,
+    "cross_signals": 0
+  },
+  "competitors": [
+    {
+      "company": "Xero",
+      "region": "Global / UK / AU / NZ",
+      "tier": "t1",
+      "signal_type": "Strategic AI partnership",
+      "headline": "Xero strikes multi-year deal with Anthropic to embed Claude across the platform",
+      "summary": "Xero announced a multi-year partnership with Anthropic to bring Claude into the Xero platform — invoice follow-ups, financial report prep, and data-secure analysis from inside Xero. Sets a new baseline for AI-native accounting workflows and pressures every competitor to follow.",
+      "source_url": "https://www.investordaily.com.au/saas-pocalyse-enters-integration-phase-with-xero-anthropic-partnership/",
+      "source_label": "Investor Daily",
+      "date": "2026-03-04"
+    }
+  ],
+  "regulatory": [],
+  "cross_signals": [],
+  "generated_at": "2026-05-01T21:57:52Z"
+}

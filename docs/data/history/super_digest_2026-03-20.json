@@ -1,0 +1,53 @@
+{
+  "week_end": "2026-03-20",
+  "week_start": "2026-03-14",
+  "score": 5.0,
+  "components": {
+    "competitor_pressure": -0.05,
+    "regulatory_pressure": 0.0,
+    "cross_signal_magnifier": 0,
+    "voc_sentiment": 0.0,
+    "intuit_offensive_moves": 0,
+    "feet_on_the_ground": 0.0
+  },
+  "explainers": [],
+  "headline": "Sage × Barclays embedded-finance partnership in UK; pressure on QBO Money/Bill Pay.",
+  "why_it_moved": "Quiet week — score holds at neutral baseline.",
+  "data_quality": "reconstructed",
+  "kpis": {
+    "competitor_signals": 1,
+    "tier1_signals": 1,
+    "regulatory_changes": 1,
+    "urgent_mandates": 0,
+    "cross_signals": 0
+  },
+  "competitors": [
+    {
+      "company": "Sage",
+      "region": "UK",
+      "tier": "t1",
+      "signal_type": "Embedded-finance partnership",
+      "headline": "Sage and Barclays launch strategic partnership integrating banking + accounting for UK SMBs",
+      "summary": "Sage and Barclays entered a strategic partnership to integrate banking and accounting services for UK small businesses — embedded finance positioning aimed at MTD compliance and reducing administrative burden. Direct overlap with QuickBooks Money / Bill Pay roadmap in the UK.",
+      "source_url": "https://www.sage.com/investors/investor-downloads/press-releases/",
+      "source_label": "Sage Investor Press",
+      "date": "2026-03-18"
+    }
+  ],
+  "regulatory": [
+    {
+      "country": "Spain",
+      "iso": "ES",
+      "region": "EMEA",
+      "topic": "E-Invoicing",
+      "title": "Spain Royal Decree formally adopts B2B e-invoicing mandate (24 March)",
+      "summary": "Royal Decree adopted on March 24, 2026: large companies compliant by July 1, 2027; all other businesses by mid-2028. Verifactu real-time reporting already mandatory for corporate taxpayers as of January 1, 2026.",
+      "status": "upcoming",
+      "effective_date": "2027-07-01",
+      "source_url": "https://tradeshift.com/resources/compliance-fr/spain-b2b-e-invoicing-mandate-2027/",
+      "urgent": false
+    }
+  ],
+  "cross_signals": [],
+  "generated_at": "2026-05-01T21:57:52Z"
+}

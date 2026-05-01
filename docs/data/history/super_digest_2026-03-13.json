@@ -1,0 +1,42 @@
+{
+  "week_end": "2026-03-13",
+  "week_start": "2026-03-07",
+  "score": 4.7,
+  "components": {
+    "competitor_pressure": -0.3,
+    "regulatory_pressure": 0,
+    "cross_signal_magnifier": 0,
+    "voc_sentiment": 0.0,
+    "intuit_offensive_moves": 0,
+    "feet_on_the_ground": 0.0
+  },
+  "explainers": [
+    "1 Tier-1 competitor move in priority markets"
+  ],
+  "headline": "MYOB-Microsoft 5-year AI deal lands; APAC accounting AI race fully open.",
+  "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+  "data_quality": "reconstructed",
+  "kpis": {
+    "competitor_signals": 1,
+    "tier1_signals": 1,
+    "regulatory_changes": 0,
+    "urgent_mandates": 0,
+    "cross_signals": 0
+  },
+  "competitors": [
+    {
+      "company": "MYOB",
+      "region": "AU / NZ",
+      "tier": "t1",
+      "signal_type": "Strategic AI partnership",
+      "headline": "MYOB confirms 5-year deal with Microsoft to expand AI agents across the platform",
+      "summary": "Following Xero/Anthropic, MYOB announced a 5-year deal with Microsoft co-funding AI tooling — agentic cash-flow forecasting, compliance navigation, and SMB insights. Locks in the second AU/NZ accounting platform behind a hyperscaler.",
+      "source_url": "https://www.smartcompany.com.au/technology/accounting-ai-arms-race-heats-up-myob-microsoft-partnership/",
+      "source_label": "SmartCompany",
+      "date": "2026-03-11"
+    }
+  ],
+  "regulatory": [],
+  "cross_signals": [],
+  "generated_at": "2026-05-01T21:57:52Z"
+}

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-01T21:19:54Z",
+  "generated_at": "2026-05-01T21:59:04Z",
   "week_start": "2026-04-24",
   "week_end": "2026-05-01",
-  "review": "<p><strong>Headline:</strong> Sage's acquisition of Doyen AI is the week's biggest move — it pulls AI-native data migration directly into the Sage Intacct/Sage 200 stack, compressing implementation from weeks to days in the same UK/EU/North America mid-market that QuickBooks Online Advanced is climbing into.</p><ul><li><strong>Competitor watch — Sage + Vertex tell the same story:</strong> AI is now a packaging line, not a research project. Sage is buying implementation speed; Vertex is restructuring 9% of headcount to redirect spend toward agentic tax. Expect Avalara and Sovos to follow.</li><li><strong>Competitor watch — Airwallex goes brand-heavy:</strong> Spike Lee–directed Arsenal campaign across the PL run-in and 2026 World Cup signals Airwallex is willing to outspend on top-of-funnel in UK/EU, where their B2B finance tooling overlaps QuickBooks Money/Bill Pay.</li><li><strong>Regulatory watch — e-invoicing wave hits in &lt;90 days:</strong> Italy SDI v1.9.1 (15 May), Australia Peppol target (1 Jul), Spain AEAT draft (1 Oct), France PDP→PA pilot (1 Sep). Five priority markets need product-side action this calendar year.</li><li><strong>Regulatory watch — Canada paper drop-box closure (30 Apr):</strong> CRA's permanent shutdown of paper drop-box filing locations forces every Canadian SMB without a digital workflow into one — an immediate accountant-led migration moment.</li><li><strong>Cross-signals — UK is the loudest market:</strong> Sage M&amp;A in UK/Global and Airwallex's UK-anchored Arsenal campaign land the same week the UK confirms its B2B/B2G e-invoicing mandate for April 2029. Three forces pulling on the same accountant base simultaneously.</li><li><strong>Quiet markets:</strong> Germany and Spain saw regulatory motion only — no competitor moves of note this week. Watch DataEv, DATEV, and Holvi/Qonto for response.</li><li><strong>What to do:</strong> Pressure-test Intuit's UK GTM narrative against the Sage Doyen AI thesis (implementation velocity), and confirm Italy SDI v1.9.1 is in the QBO compliance backlog ahead of 15 May.</li></ul>",
+  "review": "<p><strong>Health Score: 2.6 / 10</strong> (▼ 2.0 vs last week — Sage Tier-1 M&amp;A in priority market, 8 regulatory deadlines in 90-day hot zone including Italy SDI on 15 May, plus a UK cross-signal stacking competitor + regulator on the same accountant base).</p><p><strong>Headline:</strong> Sage's acquisition of Doyen AI is the week's biggest move — it pulls AI-native data migration directly into the Sage Intacct/Sage 200 stack, compressing implementation from weeks to days in the same UK/EU/North America mid-market QuickBooks Online Advanced is climbing into.</p><ul><li><strong>Competitor watch — Sage + Vertex tell the same story:</strong> AI is now a packaging line, not a research project. Sage is buying implementation speed; Vertex is restructuring 9% of headcount to redirect spend toward agentic tax. Avalara and Sovos likely to follow.</li><li><strong>Competitor watch — Airwallex goes brand-heavy:</strong> Spike Lee–directed Arsenal campaign across the PL run-in and 2026 World Cup signals Airwallex is willing to outspend on top-of-funnel in UK/EU, where their B2B tooling overlaps QBO Money/Bill Pay.</li><li><strong>Regulatory watch — e-invoicing wave:</strong> Italy SDI v1.9.1 (15 May), Australia Peppol target (1 Jul), France PDP→PA pilot (1 Sep), Spain AEAT draft (1 Oct). Five priority markets need product-side action this calendar year.</li><li><strong>Regulatory watch — Canada paper drop-box closure (30 Apr):</strong> CRA's permanent shutdown forces every Canadian SMB without a digital workflow into one — an immediate accountant-led migration moment.</li><li><strong>VOC — peer-set average rating 4.43★ vs Intuit 4.4★:</strong> Sage and FreeAgent both at 4.6★ on Trustpilot UK. Reddit/forum signal continues to flag 2026 price increases (UK charity 70% YoY) and forced US payroll-tax filing as Intuit-negative themes; Sage's customer-support reputation is the standout positive in the peer set.</li><li><strong>Cross-signals — UK is the loudest market:</strong> Sage M&amp;A and Airwallex's UK-anchored Arsenal campaign land the same week the UK confirms its B2B/B2G e-invoicing mandate for April 2029.</li><li><strong>Quiet markets:</strong> Germany and Spain saw regulatory motion only — no competitor moves of note. Watch DATEV and Holvi/Qonto for response.</li><li><strong>What to do:</strong> Pressure-test Intuit's UK GTM narrative against the Sage Doyen AI thesis (implementation velocity), confirm Italy SDI v1.9.1 is in the QBO compliance backlog ahead of 15 May, and respond to the QB UK pricing thread on Intuit Community.</li></ul>",
   "competitors": [
     {
       "company": "Sage",
@@ -219,6 +219,315 @@
       "competitor_event": "Airwallex: Airwallex launches biggest-ever ad campaign with Arsenal FC, directed by Spike Lee",
       "regulatory_event": "E-Invoicing — UK B2B/B2G e-invoicing mandate confirmed for April 2029",
       "why_it_matters": "Both regulatory pressure (E-Invoicing, eff. 2029-04-01) and competitor motion in United Kingdom this week — accountants in this market are getting hit from both sides."
+    }
+  ],
+  "voc": {
+    "week_start": "2026-04-24",
+    "week_end": "2026-05-01",
+    "summary": {
+      "intuit_vs_peer_sentiment_delta": -0.05,
+      "method": "Star-rating gap to peer-set average + qualitative review-theme review. Negative because peer set averages 4.43★ vs Intuit's 4.4★, but qualitative complaints around 2026 price increases and forced migration cluster more on Intuit than peers.",
+      "platforms_with_data": [
+        "trustpilot",
+        "reddit_and_forums"
+      ],
+      "platforms_pending": [
+        "twitter_x (API key needed)",
+        "linkedin (manual input)"
+      ]
+    },
+    "ratings_snapshot": [
+      {
+        "company": "QuickBooks (Intuit)",
+        "platform": "Trustpilot UK",
+        "stars": 4.4,
+        "review_count": 16539,
+        "review_count_label": "16.5k reviews",
+        "snapshot_date": "2026-05-01",
+        "source_url": "https://uk.trustpilot.com/review/quickbooks.intuit.com",
+        "is_intuit": true
+      },
+      {
+        "company": "Xero",
+        "platform": "Trustpilot UK",
+        "stars": 4.1,
+        "review_count": 11000,
+        "review_count_label": "~11k reviews",
+        "snapshot_date": "2026-05-01",
+        "source_url": "https://uk.trustpilot.com/review/www.xero.com",
+        "is_intuit": false
+      },
+      {
+        "company": "Sage",
+        "platform": "Trustpilot UK",
+        "stars": 4.6,
+        "review_count": 15000,
+        "review_count_label": "15k+ reviews",
+        "snapshot_date": "2026-05-01",
+        "source_url": "https://www.trustpilot.com/review/sage.com",
+        "is_intuit": false
+      },
+      {
+        "company": "FreeAgent",
+        "platform": "Trustpilot UK",
+        "stars": 4.6,
+        "review_count": 2794,
+        "review_count_label": "2.8k reviews",
+        "snapshot_date": "2026-05-01",
+        "source_url": "https://uk.trustpilot.com/review/www.freeagent.com",
+        "is_intuit": false
+      }
+    ],
+    "themes": [
+      {
+        "theme": "2026 price increases",
+        "sentiment": "negative",
+        "target_company": "QuickBooks",
+        "platforms": [
+          "Intuit Community",
+          "Trustpilot"
+        ],
+        "sample_quote": "UK charity reports cost rising from £32+VAT/mo in 2022 to £56+VAT/mo from January 2026 — almost 70% price increase for the most used product",
+        "source_url": "https://quickbooks.intuit.com/learn-support/en-uk/other-questions/2026-massive-price-increase/00/1591627",
+        "country_context": "UK"
+      },
+      {
+        "theme": "Forced US payroll-tax filing change (July 2026)",
+        "sentiment": "negative",
+        "target_company": "QuickBooks",
+        "platforms": [
+          "Intuit Community"
+        ],
+        "sample_quote": "Starting July 1, 2026, QBO will automatically pay and file all payroll taxes — users will no longer be able to submit themselves",
+        "source_url": "https://quickbooks.intuit.com/learn-support/en-us/other-questions/longtime-customer-deeply-disappointed-by-quickbooks-pricing-and/00/1559617",
+        "country_context": "US (excluded from international score; tracked for context only)"
+      },
+      {
+        "theme": "Customer support quality",
+        "sentiment": "positive",
+        "target_company": "Sage",
+        "platforms": [
+          "Trustpilot"
+        ],
+        "sample_quote": "Sage Business Cloud Accounting provides online and telephone support 24/7; reviews mention knowledge and expertise of Sage customer support",
+        "source_url": "https://www.trustpilot.com/review/sage.com",
+        "country_context": "Global (UK-weighted)"
+      },
+      {
+        "theme": "Customer support gaps (no phone support)",
+        "sentiment": "negative",
+        "target_company": "Xero",
+        "platforms": [
+          "Trustpilot",
+          "Reddit"
+        ],
+        "sample_quote": "Customer support receives consistent criticism in reviews — absence of phone support is problematic, slow response during busy payroll periods",
+        "source_url": "https://uk.trustpilot.com/review/www.xero.com",
+        "country_context": "UK"
+      },
+      {
+        "theme": "Xero vs QBO accountant preference (UK)",
+        "sentiment": "negative",
+        "target_company": "QuickBooks",
+        "platforms": [
+          "Reddit r/Accounting",
+          "comparison sites"
+        ],
+        "sample_quote": "For most UK SMEs working with an accountant, Xero is still preferred — primarily due to unlimited users at all price points and dominance in UK accountant workflows",
+        "source_url": "https://www.accountscomparison.com/xero-vs-quickbooks-reddit/",
+        "country_context": "UK"
+      },
+      {
+        "theme": "Xero 2024-25 price restructuring eroding value advantage",
+        "sentiment": "negative",
+        "target_company": "Xero",
+        "platforms": [
+          "Reddit",
+          "industry blogs"
+        ],
+        "sample_quote": "Xero's 2024-25 price restructuring has eroded its value advantage for payroll users and businesses needing multi-currency",
+        "source_url": "https://outbooks.co.uk/xero-vs-quickbooks-uk-smes-comparison/",
+        "country_context": "UK"
+      },
+      {
+        "theme": "QBO better for product businesses + construction (CIS)",
+        "sentiment": "positive",
+        "target_company": "QuickBooks",
+        "platforms": [
+          "industry comparisons"
+        ],
+        "sample_quote": "QuickBooks Online remains the better choice for product-based businesses, construction firms (CIS), and cost-sensitive businesses",
+        "source_url": "https://outbooks.co.uk/xero-vs-quickbooks-uk-smes-comparison/",
+        "country_context": "UK"
+      }
+    ],
+    "intuit_share_of_voice": {
+      "method": "Count of researched themes mentioning Intuit/QBO vs total themes (current week), international markets only",
+      "intuit_mentions": 4,
+      "peer_mentions": 4,
+      "intuit_share_pct": 50,
+      "interpretation": "Even share of voice this week. Themes split: 3 negative + 1 positive for Intuit; 2 negative + 1 positive + 1 mixed for peers."
+    },
+    "twitter_x": {
+      "enabled": false,
+      "note": "Add X API token to enable"
+    },
+    "linkedin": {
+      "enabled": false,
+      "note": "Paste 3-5 noteworthy posts/wk into manual_voc"
+    }
+  },
+  "feet_on_the_ground": [],
+  "intuit_moves": [],
+  "health_score": {
+    "score": 2.6,
+    "delta_vs_last_week": -2.0,
+    "components": {
+      "competitor_pressure": -0.75,
+      "regulatory_pressure": -1.0,
+      "cross_signal_magnifier": -0.4,
+      "voc_sentiment": -0.3,
+      "intuit_offensive_moves": 0,
+      "feet_on_the_ground": 0.0
+    },
+    "explainers": [
+      "1 Tier-1 competitor move in priority markets",
+      "8 regulatory deadlines within 90 days",
+      "competitor + regulator both moved in 1 market",
+      "VOC tilting Intuit-negative vs peers (-0.05)"
+    ],
+    "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets; 8 regulatory deadlines within 90 days; competitor + regulator both moved in 1 market; VOC tilting Intuit-negative vs peers (-0.05)",
+    "scale_min": 0,
+    "scale_max": 10,
+    "neutral_baseline": 5.0,
+    "config_version": "1.0.0"
+  },
+  "history": [
+    {
+      "week_end": "2026-03-06",
+      "score": 4.7,
+      "headline": "Xero × Anthropic deal signals platform-AI baseline rising; Sage and MYOB respond.",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 1,
+        "tier1_signals": 1,
+        "regulatory_changes": 0,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-03-13",
+      "score": 4.7,
+      "headline": "MYOB-Microsoft 5-year AI deal lands; APAC accounting AI race fully open.",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 1,
+        "tier1_signals": 1,
+        "regulatory_changes": 0,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-03-20",
+      "score": 5.0,
+      "headline": "Sage × Barclays embedded-finance partnership in UK; pressure on QBO Money/Bill Pay.",
+      "why_it_moved": "Quiet week — score holds at neutral baseline.",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 1,
+        "tier1_signals": 1,
+        "regulatory_changes": 1,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-03-27",
+      "score": 4.4,
+      "headline": "Quiet competitor week, regulatory clock ticks toward 1 April mandates.",
+      "why_it_moved": "Score moved because: 3 regulatory deadlines within 90 days",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 0,
+        "tier1_signals": 0,
+        "regulatory_changes": 3,
+        "urgent_mandates": 3,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-04-03",
+      "score": 4.2,
+      "headline": "Three priority-market e-invoicing mandates go live (IN, SG, ZA); Avalara doubles down on agentic.",
+      "why_it_moved": "Score moved because: 3 regulatory deadlines within 90 days",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 1,
+        "tier1_signals": 0,
+        "regulatory_changes": 3,
+        "urgent_mandates": 3,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-04-10",
+      "score": 5.0,
+      "headline": "Quiet week — accountants absorbing 1 April mandates; no major competitor moves.",
+      "why_it_moved": "Quiet week — score holds at neutral baseline.",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 0,
+        "tier1_signals": 0,
+        "regulatory_changes": 0,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-04-17",
+      "score": 4.9,
+      "headline": "Brazil tax-reform technical note published; Italy SDI v1.9.1 specs released.",
+      "why_it_moved": "Quiet week — score holds at neutral baseline.",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 0,
+        "tier1_signals": 0,
+        "regulatory_changes": 1,
+        "urgent_mandates": 1,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-04-24",
+      "score": 4.6,
+      "headline": "Italy SDI v1.9.1 released with 15 May effective date — accountants on a 3-week clock.",
+      "why_it_moved": "Score moved because: 2 regulatory deadlines within 90 days",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 0,
+        "tier1_signals": 0,
+        "regulatory_changes": 2,
+        "urgent_mandates": 2,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-05-01",
+      "score": 2.9,
+      "headline": "Sage acquires Doyen AI; UK is loudest market this week (M&A + Airwallex + 2029 mandate confirmed).",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets; 8 regulatory deadlines within 90 days; competitor + regulator both moved in 1 market",
+      "data_quality": "live",
+      "kpis": {
+        "competitor_signals": 4,
+        "tier1_signals": 1,
+        "regulatory_changes": 13,
+        "urgent_mandates": 11,
+        "cross_signals": 1
+      }
     }
   ],
   "kpis": {

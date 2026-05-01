@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>International Market Health — Super Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root {
     --bg: #0b0d12;
@@ -31,6 +32,43 @@
   header h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
   header .meta { color: var(--muted); font-size: 13px; }
   main { padding: 24px 32px 64px; max-width: 1500px; margin: 0 auto; }
+
+  /* Health Score Hero */
+  .hero { display: grid; grid-template-columns: 320px 1fr; gap: 18px; margin-bottom: 20px; }
+  @media (max-width: 980px) { .hero { grid-template-columns: 1fr; } }
+  .score-card {
+    background: linear-gradient(180deg, #141a26 0%, #11141b 100%);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px 22px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .score-card .label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); font-weight: 600; }
+  .score-card .score { font-size: 64px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin: 8px 0 0; }
+  .score-card .score-suffix { font-size: 22px; color: var(--muted); font-weight: 500; margin-left: 6px; }
+  .score-card .delta { font-size: 14px; margin-top: 4px; font-weight: 500; }
+  .delta.up { color: var(--green); }
+  .delta.down { color: var(--red); }
+  .delta.flat { color: var(--muted); }
+  .score-card .why { font-size: 13px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
+  .score-card .scale-bar { height: 6px; border-radius: 3px; background: var(--panel-2);
+    margin-top: 14px; overflow: hidden; position: relative; }
+  .score-card .scale-bar .fill {
+    height: 100%; background: linear-gradient(90deg, var(--red) 0%, var(--yellow) 50%, var(--green) 100%);
+    border-radius: 3px;
+  }
+  .score-card .scale-marker { position: absolute; top: -3px; width: 2px; height: 12px; background: var(--text);
+    border-radius: 1px; transform: translateX(-50%); }
+  .score-card .scale-legend { display: flex; justify-content: space-between; font-size: 10.5px;
+    color: var(--muted); margin-top: 4px; }
+
+  .trend-card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .trend-card .label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); font-weight: 600; }
+  .trend-card .sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .trend-card .chart-wrap { height: 180px; margin-top: 8px; }
 
   .review {
     background: linear-gradient(180deg, #141a26 0%, #11141b 100%);
@@ -87,9 +125,34 @@
   .tag.upcoming { color: #93c5fd; border-color: #1e3a5f; background: #102236; }
   .tag.monitoring { color: #d1d5db; border-color: #2f3645; background: #1a1f2c; }
   .tag.region { color: #d8b4fe; border-color: #3d1f5b; background: #1d1029; }
+  .tag.platform { color: #fbcfe8; border-color: #5b1f4a; background: #2a1424; }
+  .tag.positive { color: #86efac; border-color: #15402a; background: #0f2a1c; }
+  .tag.negative { color: #fca5a5; border-color: #5b1f1f; background: #2a1414; }
   .item .title { font-size: 14.5px; font-weight: 600; line-height: 1.35; }
   .item .summary { font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
   .item .meta { font-size: 11.5px; color: var(--muted); margin-top: 6px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* VOC section */
+  .voc-section { margin-top: 22px; }
+  .section-title { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); font-weight: 600; margin: 22px 0 10px; }
+  .voc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 980px) { .voc-grid { grid-template-columns: 1fr; } }
+  .ratings-bars { padding: 16px 18px; }
+  .rating-row { display: grid; grid-template-columns: 130px 1fr 80px; align-items: center;
+    gap: 10px; padding: 6px 0; }
+  .rating-row .name { font-size: 13px; }
+  .rating-row .name.intuit { color: var(--accent); font-weight: 600; }
+  .rating-row .bar { height: 8px; background: var(--panel-2); border-radius: 4px; overflow: hidden; }
+  .rating-row .bar-fill { height: 100%; background: linear-gradient(90deg, var(--yellow), var(--green));
+    border-radius: 4px; }
+  .rating-row .name.intuit ~ .bar .bar-fill { background: linear-gradient(90deg, var(--accent), #88b3ff); }
+  .rating-row .stat { font-size: 12px; color: var(--muted); text-align: right; }
+  .voc-note { font-size: 11.5px; color: var(--muted); padding: 8px 18px 14px; border-top: 1px solid var(--border); }
+
+  .fog-empty { padding: 28px; text-align: center; color: var(--muted); font-size: 13px;
+    border: 1px dashed var(--border); border-radius: 14px; background: var(--panel); }
+  .fog-empty strong { color: var(--text); }
 
   .empty { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
   .loader { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
@@ -112,6 +175,27 @@
 </header>
 
 <main>
+  <!-- Health Score Hero -->
+  <section class="hero">
+    <div class="score-card">
+      <div>
+        <div class="label">Market Health Score</div>
+        <div><span class="score" id="scoreValue">—</span><span class="score-suffix">/ 10</span></div>
+        <div class="delta" id="scoreDelta">—</div>
+      </div>
+      <div>
+        <div class="scale-bar"><div class="fill"></div><div class="scale-marker" id="scoreMarker"></div></div>
+        <div class="scale-legend"><span>0 acute</span><span>5 baseline</span><span>10 tailwind</span></div>
+        <div class="why" id="scoreWhy">—</div>
+      </div>
+    </div>
+    <div class="trend-card">
+      <div class="label">9-week trend (since 6 March 2026)</div>
+      <div class="sub" id="trendSub">Hover any point for the week's headline.</div>
+      <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+    </div>
+  </section>
+
   <section class="review">
     <h2>Executive review · This week</h2>
     <div class="body" id="review">Loading weekly synthesis…</div>
@@ -159,20 +243,43 @@
       <div class="body" id="regulatory"><div class="loader">Loading regulatory changes</div></div>
     </div>
   </section>
+
+  <!-- VOC Section -->
+  <div class="section-title">🗣 Voice of Customer · International (non-US)</div>
+  <div class="voc-grid">
+    <div class="feed">
+      <h3>⭐ Peer ratings snapshot <span class="src">Trustpilot UK</span> <span class="count" id="vocRatingsCount">—</span></h3>
+      <div class="body">
+        <div class="ratings-bars" id="vocRatings"><div class="loader">Loading ratings</div></div>
+        <div class="voc-note" id="vocRatingsNote"></div>
+      </div>
+    </div>
+    <div class="feed">
+      <h3>💬 Themes this week <span class="src">Reddit + forums + reviews</span> <span class="count" id="vocThemesCount">—</span></h3>
+      <div class="body" id="vocThemes"><div class="loader">Loading themes</div></div>
+    </div>
+  </div>
+
+  <!-- Feet on the Ground -->
+  <div class="section-title">👟 Feet on the Ground · Events, customer meetings, market immersions</div>
+  <div id="fogContainer">
+    <div class="fog-empty">
+      <strong>No entries this week.</strong><br>
+      Drop notes from events, customer meetings, or market immersions into <code>feet_on_the_ground[]</code> in the digest payload.
+      Each entry needs <code>{date, country, summary, direction: "positive"|"negative"|"neutral", source}</code>.
+    </div>
+  </div>
 </main>
 
 <footer>
   Auto-refreshed Friday 8:15am PT · Data sources:
   <a href="data/super_digest.json">super_digest.json</a> ·
+  <a href="data/history.json">history.json</a> ·
   <a href="https://jeremyfeit-spec.github.io/international_market_pulse/data/competitor_signals.json">competitor_signals.json</a> ·
   <a href="https://jeremyfeit-spec.github.io/regulatory-tracker/data/regulatory_changes.json">regulatory_changes.json</a>
 </footer>
 
 <script>
-  // ---------- Fetch helpers ----------
-  // Primary: pull from this repo's pre-baked super_digest.json (written every Friday).
-  // Fallback: fetch directly from each source dashboard's JSON.
-
   const SUPER_URL = 'data/super_digest.json';
   const PULSE_URL = 'https://jeremyfeit-spec.github.io/international_market_pulse/data/competitor_signals.json';
   const REG_URL   = 'https://jeremyfeit-spec.github.io/regulatory-tracker/data/regulatory_changes.json';
@@ -185,17 +292,13 @@
     } catch (e) { return null; }
   }
 
-  // ---------- State ----------
   let state = {
-    competitors: [],   // [{company, region, tier, signal_type, summary, source_url, source_label, date}]
-    regs: [],          // [{country, iso, region, topic, title, summary, status, effective_date, source_url, urgent}]
-    review: null,      // markdown / html string
-    generated: null,   // ISO timestamp
-    weekStart: null, weekEnd: null,
+    competitors: [], regs: [], voc: null, fog: [],
+    health: null, history: [],
+    review: null, generated: null, weekStart: null, weekEnd: null,
     filter: { search: '', region: '', urgency: '', tier: '' }
   };
 
-  // ---------- Render ----------
   const $ = (id) => document.getElementById(id);
 
   function tierTag(t) {
@@ -280,10 +383,148 @@
       ...state.regs.map(x => x.country).filter(Boolean),
     ]);
     $('kpiMarkets').textContent = markets.size;
-    // cross-signals: country/region appears in both feeds
     const compRegions = new Set(state.competitors.map(x => (x.country || x.region || '').toLowerCase()));
     const cross = state.regs.filter(x => compRegions.has((x.country||'').toLowerCase()) || compRegions.has((x.region||'').toLowerCase()));
     $('kpiCross').textContent = cross.length;
+  }
+
+  function renderHealthScore() {
+    if (!state.health) {
+      $('scoreValue').textContent = '—';
+      $('scoreDelta').textContent = '';
+      $('scoreWhy').textContent = 'Health score will populate once super_digest.json is available.';
+      return;
+    }
+    const h = state.health;
+    $('scoreValue').textContent = h.score.toFixed(1);
+    const d = h.delta_vs_last_week || 0;
+    const arrow = d > 0 ? '▲' : d < 0 ? '▼' : '·';
+    const cls = d > 0 ? 'up' : d < 0 ? 'down' : 'flat';
+    $('scoreDelta').className = 'delta ' + cls;
+    $('scoreDelta').textContent = `${arrow} ${Math.abs(d).toFixed(1)} vs last week`;
+    $('scoreMarker').style.left = `${(h.score / 10) * 100}%`;
+    $('scoreWhy').textContent = h.why_it_moved || '';
+  }
+
+  let trendChart = null;
+  function renderTrendChart() {
+    if (!state.history || state.history.length === 0) return;
+    const ctx = $('trendChart').getContext('2d');
+    const sorted = [...state.history].sort((a,b) => a.week_end.localeCompare(b.week_end));
+    const labels = sorted.map(w => w.week_end.slice(5));
+    const data = sorted.map(w => w.score);
+    const headlines = sorted.map(w => w.headline || '');
+    const isLive = sorted.map(w => w.data_quality === 'live');
+
+    if (trendChart) trendChart.destroy();
+    trendChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          data,
+          borderColor: '#4f8cff',
+          backgroundColor: 'rgba(79,140,255,0.15)',
+          fill: true,
+          tension: 0.35,
+          pointRadius: isLive.map(l => l ? 6 : 4),
+          pointHoverRadius: 7,
+          pointBackgroundColor: isLive.map(l => l ? '#fbbf24' : '#4f8cff'),
+          pointBorderColor: '#0b0d12',
+          pointBorderWidth: 2,
+          borderWidth: 2,
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: (items) => 'Week of ' + sorted[items[0].dataIndex].week_end,
+              label: (item) => 'Score: ' + item.parsed.y.toFixed(1) + ' / 10',
+              afterLabel: (item) => {
+                const h = headlines[item.dataIndex];
+                if (!h) return '';
+                // wrap long headlines
+                const words = h.split(' ');
+                const lines = [];
+                let line = '';
+                for (const w of words) {
+                  if ((line + ' ' + w).length > 60) { lines.push(line); line = w; }
+                  else line = line ? line + ' ' + w : w;
+                }
+                if (line) lines.push(line);
+                return lines;
+              }
+            }
+          }
+        },
+        scales: {
+          y: { min: 0, max: 10, grid: { color: '#1a1f2c' }, ticks: { color: '#8a93a6', stepSize: 2 } },
+          x: { grid: { display: false }, ticks: { color: '#8a93a6' } }
+        }
+      }
+    });
+  }
+
+  function renderVOC() {
+    if (!state.voc) {
+      $('vocRatings').innerHTML = '<div class="empty">No VOC data yet.</div>';
+      $('vocThemes').innerHTML = '<div class="empty">No themes yet.</div>';
+      return;
+    }
+    // Ratings bars
+    const ratings = state.voc.ratings_snapshot || [];
+    $('vocRatingsCount').textContent = ratings.length;
+    const max = 5;
+    $('vocRatings').innerHTML = ratings.map(r => `
+      <div class="rating-row">
+        <div class="name${r.is_intuit ? ' intuit' : ''}">${escape(r.company)}</div>
+        <div class="bar"><div class="bar-fill" style="width: ${(r.stars / max) * 100}%; ${r.is_intuit ? 'background: linear-gradient(90deg, var(--accent), #88b3ff);' : ''}"></div></div>
+        <div class="stat">${r.stars}★ · ${escape(r.review_count_label || '')}</div>
+      </div>
+    `).join('');
+    const note = state.voc.summary?.method ? `Method: ${escape(state.voc.summary.method)}` : '';
+    $('vocRatingsNote').innerHTML = note;
+
+    // Themes
+    const themes = state.voc.themes || [];
+    $('vocThemesCount').textContent = themes.length;
+    if (!themes.length) { $('vocThemes').innerHTML = '<div class="empty">No themes recorded this week.</div>'; return; }
+    $('vocThemes').innerHTML = themes.map(t => `
+      <div class="item">
+        <div class="row1">
+          <span class="tag ${t.sentiment === 'positive' ? 'positive' : 'negative'}">${t.sentiment === 'positive' ? '👍 positive' : '👎 negative'}</span>
+          <span class="tag">${escape(t.target_company)}</span>
+          ${(t.platforms || []).map(p => `<span class="tag platform">${escape(p)}</span>`).join('')}
+        </div>
+        <div class="title">${escape(t.theme)}</div>
+        <div class="summary">${escape(t.sample_quote || '')}</div>
+        <div class="meta">
+          ${t.country_context ? `<span>📍 ${escape(t.country_context)}</span>` : ''}
+          ${t.source_url ? `<a href="${escape(t.source_url)}" target="_blank">🔗 source</a>` : ''}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderFOG() {
+    if (!state.fog || state.fog.length === 0) return; // keep the dashed empty state from the static HTML
+    $('fogContainer').innerHTML = '<div class="feed"><h3>👟 Feet on the Ground <span class="count">' + state.fog.length + '</span></h3><div class="body">' +
+      state.fog.map(f => `
+        <div class="item">
+          <div class="row1">
+            <span class="tag ${f.direction === 'positive' ? 'positive' : f.direction === 'negative' ? 'negative' : ''}">${escape(f.direction || 'neutral')}</span>
+            ${f.country ? `<span class="tag region">${escape(f.country)}</span>` : ''}
+          </div>
+          <div class="summary">${escape(f.summary || '')}</div>
+          <div class="meta">
+            ${f.date ? `<span>📅 ${escape(f.date)}</span>` : ''}
+            ${f.source ? `<span>${escape(f.source)}</span>` : ''}
+          </div>
+        </div>
+      `).join('') + '</div></div>';
   }
 
   function renderReview() {
@@ -291,7 +532,6 @@
       $('review').textContent = 'No executive review yet. Will populate Fridays at 8:15 AM PT after both source jobs finish.';
       return;
     }
-    // accept either pre-rendered HTML or markdown-lite (paragraphs + - bullets)
     if (/<[a-z][\s\S]*>/i.test(state.review)) { $('review').innerHTML = state.review; return; }
     const lines = state.review.split('\n');
     let html = '', inList = false;
@@ -312,9 +552,14 @@
     $('metaLine').textContent = parts.join(' · ') || 'Live';
   }
 
-  function renderAll() { renderReview(); renderKPIs(); renderCompetitors(); renderRegs(); renderMeta(); }
+  function renderAll() {
+    renderHealthScore(); renderTrendChart();
+    renderReview(); renderKPIs();
+    renderCompetitors(); renderRegs();
+    renderVOC(); renderFOG();
+    renderMeta();
+  }
 
-  // ---------- Wire filters ----------
   $('search').addEventListener('input', e => { state.filter.search = e.target.value; renderCompetitors(); renderRegs(); });
   $('region').addEventListener('change', e => { state.filter.region = e.target.value; renderCompetitors(); renderRegs(); });
   $('urgency').addEventListener('change', e => { state.filter.urgency = e.target.value; renderRegs(); });
@@ -324,7 +569,6 @@
     state.filter.tier = p.dataset.tier; renderCompetitors();
   }));
 
-  // remember filter choices
   try {
     const saved = JSON.parse(localStorage.getItem('imh.filter') || '{}');
     if (saved.search) { $('search').value = saved.search; state.filter.search = saved.search; }
@@ -335,19 +579,20 @@
     try { localStorage.setItem('imh.filter', JSON.stringify(state.filter)); } catch (e) {}
   });
 
-  // ---------- Boot ----------
   (async () => {
-    // Try the baked super-digest first
     const sd = await loadJSON(SUPER_URL);
     if (sd) {
       state.competitors = sd.competitors || [];
       state.regs = sd.regulatory || [];
+      state.voc = sd.voc || null;
+      state.fog = sd.feet_on_the_ground || [];
+      state.health = sd.health_score || null;
+      state.history = sd.history || [];
       state.review = sd.review || null;
       state.generated = sd.generated_at || null;
       state.weekStart = sd.week_start; state.weekEnd = sd.week_end;
       renderAll(); return;
     }
-    // Fallback: live-pull from both source dashboards
     const [pulse, reg] = await Promise.all([loadJSON(PULSE_URL), loadJSON(REG_URL)]);
     if (pulse && Array.isArray(pulse.signals)) state.competitors = pulse.signals;
     if (reg && Array.isArray(reg.changes)) state.regs = reg.changes;

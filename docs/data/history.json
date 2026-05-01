@@ -1,0 +1,131 @@
+{
+  "generated_at": "2026-05-01T21:58:07Z",
+  "weeks": [
+    {
+      "week_end": "2026-03-06",
+      "score": 4.7,
+      "headline": "Xero × Anthropic deal signals platform-AI baseline rising; Sage and MYOB respond.",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 1,
+        "tier1_signals": 1,
+        "regulatory_changes": 0,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-03-13",
+      "score": 4.7,
+      "headline": "MYOB-Microsoft 5-year AI deal lands; APAC accounting AI race fully open.",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 1,
+        "tier1_signals": 1,
+        "regulatory_changes": 0,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-03-20",
+      "score": 5.0,
+      "headline": "Sage × Barclays embedded-finance partnership in UK; pressure on QBO Money/Bill Pay.",
+      "why_it_moved": "Quiet week — score holds at neutral baseline.",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 1,
+        "tier1_signals": 1,
+        "regulatory_changes": 1,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-03-27",
+      "score": 4.4,
+      "headline": "Quiet competitor week, regulatory clock ticks toward 1 April mandates.",
+      "why_it_moved": "Score moved because: 3 regulatory deadlines within 90 days",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 0,
+        "tier1_signals": 0,
+        "regulatory_changes": 3,
+        "urgent_mandates": 3,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-04-03",
+      "score": 4.2,
+      "headline": "Three priority-market e-invoicing mandates go live (IN, SG, ZA); Avalara doubles down on agentic.",
+      "why_it_moved": "Score moved because: 3 regulatory deadlines within 90 days",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 1,
+        "tier1_signals": 0,
+        "regulatory_changes": 3,
+        "urgent_mandates": 3,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-04-10",
+      "score": 5.0,
+      "headline": "Quiet week — accountants absorbing 1 April mandates; no major competitor moves.",
+      "why_it_moved": "Quiet week — score holds at neutral baseline.",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 0,
+        "tier1_signals": 0,
+        "regulatory_changes": 0,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-04-17",
+      "score": 4.9,
+      "headline": "Brazil tax-reform technical note published; Italy SDI v1.9.1 specs released.",
+      "why_it_moved": "Quiet week — score holds at neutral baseline.",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 0,
+        "tier1_signals": 0,
+        "regulatory_changes": 1,
+        "urgent_mandates": 1,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-04-24",
+      "score": 4.6,
+      "headline": "Italy SDI v1.9.1 released with 15 May effective date — accountants on a 3-week clock.",
+      "why_it_moved": "Score moved because: 2 regulatory deadlines within 90 days",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 0,
+        "tier1_signals": 0,
+        "regulatory_changes": 2,
+        "urgent_mandates": 2,
+        "cross_signals": 0
+      }
+    },
+    {
+      "week_end": "2026-05-01",
+      "score": 2.9,
+      "headline": "Sage acquires Doyen AI; UK is loudest market this week (M&A + Airwallex + 2029 mandate confirmed).",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets; 8 regulatory deadlines within 90 days; competitor + regulator both moved in 1 market",
+      "data_quality": "live",
+      "kpis": {
+        "competitor_signals": 4,
+        "tier1_signals": 1,
+        "regulatory_changes": 13,
+        "urgent_mandates": 11,
+        "cross_signals": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "week_end": "2026-04-03",
+  "week_start": "2026-03-28",
+  "score": 4.2,
+  "components": {
+    "competitor_pressure": -0.15,
+    "regulatory_pressure": -0.6,
+    "cross_signal_magnifier": 0,
+    "voc_sentiment": 0.0,
+    "intuit_offensive_moves": 0,
+    "feet_on_the_ground": 0.0
+  },
+  "explainers": [
+    "3 regulatory deadlines within 90 days"
+  ],
+  "headline": "Three priority-market e-invoicing mandates go live (IN, SG, ZA); Avalara doubles down on agentic.",
+  "why_it_moved": "Score moved because: 3 regulatory deadlines within 90 days",
+  "data_quality": "reconstructed",
+  "kpis": {
+    "competitor_signals": 1,
+    "tier1_signals": 0,
+    "regulatory_changes": 3,
+    "urgent_mandates": 3,
+    "cross_signals": 0
+  },
+  "competitors": [
+    {
+      "company": "Avalara",
+      "region": "Global",
+      "tier": "t2",
+      "signal_type": "AI capability launch",
+      "headline": "Avalara advances Agentic Compliance — moves from AI-assisted to AI-executed workflows",
+      "summary": "Avalara announced a new chapter in Agentic Tax & Compliance, embedding AI agents across the compliance lifecycle: tax calculation, return prep, exemption certificate management. Direct competitive pressure on Vertex and Sovos in mid-market tax engines.",
+      "source_url": "https://www.prnewswire.com/news-releases/avalara-advances-agentic-compliance-moving-from-ai-assisted-to-ai-executed-workflows-302738216.html",
+      "source_label": "Avalara Press Release",
+      "date": "2026-04-01"
+    }
+  ],
+  "regulatory": [
+    {
+      "country": "India",
+      "iso": "IN",
+      "region": "APAC",
+      "topic": "E-Invoicing",
+      "title": "GST e-invoicing changes go live (₹5cr threshold, 30d reporting, MFA)",
+      "summary": "Mandate now live — accountants and SMBs above ₹5cr face mandatory IRP-upload 30-day window and MFA on the portal.",
+      "status": "live",
+      "effective_date": "2026-04-01",
+      "source_url": "https://cleartax.in/s/gst-changes-from-april-2026",
+      "urgent": true
+    },
+    {
+      "country": "Singapore",
+      "iso": "SG",
+      "region": "APAC",
+      "topic": "E-Invoicing",
+      "title": "InvoiceNow now mandatory for new voluntary GST registrants",
+      "summary": "Mandate effective 1 April 2026.",
+      "status": "live",
+      "effective_date": "2026-04-01",
+      "source_url": "https://www.iras.gov.sg/news-events/newsroom/committee-of-supply-2026--extension-of-gst-invoicenow-requirement-to-all-gst-registered-businesses-by-april-2031",
+      "urgent": true
+    },
+    {
+      "country": "South Africa",
+      "iso": "ZA",
+      "region": "EMEA",
+      "topic": "E-Invoicing",
+      "title": "South Africa Tax Administration Laws Amendment Act 2026 in force",
+      "summary": "Legal framework for e-invoicing and e-reporting under VAT Act now in force.",
+      "status": "live",
+      "effective_date": "2026-04-01",
+      "source_url": "https://www.vatupdate.com/2026/04/22/south-africa-enacts-legal-framework-for-e-invoicing-and-e-reporting-under-vat-act/",
+      "urgent": true
+    }
+  ],
+  "cross_signals": [],
+  "generated_at": "2026-05-01T21:57:52Z"
+}

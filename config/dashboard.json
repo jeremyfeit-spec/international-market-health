@@ -19,5 +19,32 @@
     }
   },
   "exec_digest_slack_channel_id": "C0B14UXEB8W",
-  "exec_digest_slack_channel_name": "international_market_health"
+  "exec_digest_slack_channel_name": "international_market_health",
+  "voc": {
+    "intuit_brands": ["QuickBooks", "QBO", "Intuit", "QuickBooks Online", "QuickBooks UK", "QuickBooks CA", "QuickBooks AU", "QuickBooks IN"],
+    "peer_companies": ["Xero", "Sage", "FreeAgent", "MYOB", "Wave", "Zoho Books", "Pennylane", "FreshBooks", "KashFlow"],
+    "exclude_us_only": true,
+    "platforms": {
+      "reddit": {
+        "enabled": true,
+        "subs": ["QuickBooks", "Accounting", "smallbusiness", "UKPersonalFinance", "AusFinance", "PersonalFinanceCanada", "IndiaInvestments", "eupersonalfinance", "Xero", "Bookkeeping"]
+      },
+      "twitter": {
+        "enabled": false,
+        "note": "Requires X API credentials. Scaffolded — add token to enable."
+      },
+      "trustpilot_g2_capterra": {
+        "enabled": true,
+        "mode": "summary_snapshot",
+        "note": "Public ratings page only. No per-review scraping."
+      },
+      "linkedin": {
+        "enabled": false,
+        "mode": "manual_input",
+        "note": "Paste 3–5 noteworthy posts/wk into the manual_voc field; no scraper."
+      }
+    }
+  },
+  "history_window_weeks": 9,
+  "history_start_week": "2026-03-06"
 }
