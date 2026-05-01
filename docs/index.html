@@ -174,7 +174,35 @@
     border-radius: 4px; }
   .rating-row .name.intuit ~ .bar .bar-fill { background: linear-gradient(90deg, var(--accent), #88b3ff); }
   .rating-row .stat { font-size: 12px; color: var(--muted); text-align: right; }
-  .voc-note { font-size: 11.5px; color: var(--muted); padding: 8px 18px 14px; border-top: 1px solid var(--border); }
+  .voc-note { font-size: 11.5px; color: var(--muted); padding: 8px 18px 14px; border-top: 1px solid var(--border); line-height: 1.5; }
+  .voc-tabs { display: flex; gap: 6px; padding: 12px 18px 8px; border-bottom: 1px solid var(--border);
+    overflow-x: auto; flex-wrap: wrap; }
+  .voc-tab { font-size: 11.5px; padding: 5px 11px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--panel-2); color: var(--muted);
+    cursor: pointer; user-select: none; white-space: nowrap; transition: all 0.12s ease; }
+  .voc-tab:hover { color: var(--text); border-color: #303a4f; }
+  .voc-tab.active { background: #1d2436; border-color: var(--accent); color: var(--text); }
+  .voc-tab .scope { color: var(--muted); margin-left: 6px; font-weight: 400; }
+  .voc-tab.active .scope { color: var(--text); }
+
+  .voc-overall {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px; margin-bottom: 14px;
+  }
+  .voc-overall .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .voc-overall .card.intuit { border-color: var(--accent); background: #131b2c; }
+  .voc-overall .card .name { font-size: 12px; color: var(--muted); }
+  .voc-overall .card.intuit .name { color: #88b3ff; }
+  .voc-overall .card .stars { font-size: 22px; font-weight: 700; margin-top: 2px; }
+  .voc-overall .card .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .rating-row .stat .nv { color: #fbcfe8; }
+  .rating-row.no-data .name { color: var(--muted); font-style: italic; }
+  .rating-row.no-data .stat { color: var(--muted); }
+  .rating-row .source-link { font-size: 10px; }
 
   .fog-empty { padding: 28px; text-align: center; color: var(--muted); font-size: 13px;
     border: 1px dashed var(--border); border-radius: 14px; background: var(--panel); }
@@ -301,10 +329,12 @@
 
   <!-- VOC Section -->
   <div class="section-title">🗣 Voice of Customer · International (non-US)</div>
+  <div class="voc-overall" id="vocOverall"></div>
   <div class="voc-grid">
     <div class="feed">
-      <h3>⭐ Peer ratings snapshot <span class="src">Trustpilot UK</span> <span class="count" id="vocRatingsCount">—</span></h3>
+      <h3>⭐ Peer ratings <span class="src" id="vocPlatformLabel">—</span> <span class="count" id="vocRatingsCount">—</span></h3>
       <div class="body">
+        <div class="voc-tabs" id="vocTabs"></div>
         <div class="ratings-bars" id="vocRatings"><div class="loader">Loading ratings</div></div>
         <div class="voc-note" id="vocRatingsNote"></div>
       </div>
@@ -521,28 +551,87 @@
     });
   }
 
-  function renderVOC() {
-    if (!state.voc) {
-      $('vocRatings').innerHTML = '<div class="empty">No VOC data yet.</div>';
-      $('vocThemes').innerHTML = '<div class="empty">No themes yet.</div>';
-      return;
-    }
-    // Ratings bars
-    const ratings = state.voc.ratings_snapshot || [];
-    $('vocRatingsCount').textContent = ratings.length;
-    const max = 5;
-    $('vocRatings').innerHTML = ratings.map(r => `
-      <div class="rating-row">
-        <div class="name${r.is_intuit ? ' intuit' : ''}">${escape(r.company)}</div>
-        <div class="bar"><div class="bar-fill" style="width: ${(r.stars / max) * 100}%; ${r.is_intuit ? 'background: linear-gradient(90deg, var(--accent), #88b3ff);' : ''}"></div></div>
-        <div class="stat">${r.stars}★ · ${escape(r.review_count_label || '')}</div>
-      </div>
-    `).join('');
-    const note = state.voc.summary?.method ? `Method: ${escape(state.voc.summary.method)}` : '';
-    $('vocRatingsNote').innerHTML = note;
+  let vocActivePlatform = null;
 
-    // Themes
-    const themes = state.voc.themes || [];
+  function renderVOCOverall() {
+    const overall = state.voc?.overall_by_company || {};
+    const summary = state.voc?.summary || {};
+    const cards = Object.entries(overall).map(([name, info]) => {
+      const isIntuit = name.toLowerCase().includes('intuit') || name.toLowerCase().includes('quickbooks');
+      const stars = info.stars != null ? info.stars.toFixed(2) : '—';
+      const platforms = info.platforms_counted || 0;
+      return `<div class="card${isIntuit ? ' intuit' : ''}">
+        <div class="name">${escape(name)}</div>
+        <div class="stars">${stars}★</div>
+        <div class="sub">across ${platforms} platform${platforms === 1 ? '' : 's'}</div>
+      </div>`;
+    }).join('');
+    const intuitOverall = summary.intuit_overall_stars;
+    const peerAvg = summary.peer_set_avg_stars;
+    const headerLine = (intuitOverall != null && peerAvg != null)
+      ? `<div style="font-size: 12.5px; color: var(--muted); margin-bottom: 8px;">
+           Cross-platform weighted-average: <strong style="color: var(--accent)">Intuit ${intuitOverall}★</strong> vs peer-set avg ${peerAvg}★ (${(intuitOverall - peerAvg) >= 0 ? '+' : ''}${(intuitOverall - peerAvg).toFixed(2)}). The country-level gap (e.g. QBO AU 3.1★) is bigger than the global average suggests.
+         </div>`
+      : '';
+    $('vocOverall').innerHTML = headerLine + cards;
+  }
+
+  function renderVOCTabs() {
+    const platforms = state.voc?.ratings_by_platform || {};
+    const ids = Object.keys(platforms);
+    if (!ids.length) { $('vocTabs').innerHTML = ''; return; }
+    if (!vocActivePlatform || !platforms[vocActivePlatform]) vocActivePlatform = ids[0];
+    $('vocTabs').innerHTML = ids.map(id => {
+      const p = platforms[id];
+      const isActive = id === vocActivePlatform;
+      const scope = p.country_iso || (p.region_scope === 'Global' ? 'Global' : p.region_scope || '');
+      return `<span class="voc-tab${isActive ? ' active' : ''}" data-platform="${escape(id)}">
+        ${escape(p.display_name)}<span class="scope">· ${escape(scope)}</span>
+      </span>`;
+    }).join('');
+    document.querySelectorAll('.voc-tab').forEach(t => t.addEventListener('click', () => {
+      vocActivePlatform = t.dataset.platform;
+      renderVOCTabs();
+      renderVOCRatings();
+    }));
+  }
+
+  function renderVOCRatings() {
+    const platforms = state.voc?.ratings_by_platform || {};
+    const p = platforms[vocActivePlatform];
+    if (!p) { $('vocRatings').innerHTML = '<div class="empty">No data for this platform.</div>'; return; }
+    $('vocPlatformLabel').textContent = p.display_name;
+    $('vocRatingsCount').textContent = p.companies.length;
+    const max = 5;
+    $('vocRatings').innerHTML = p.companies.map(c => {
+      const noData = c.stars == null;
+      const fillStyle = noData ? 'width: 0' :
+        `width: ${(c.stars / max) * 100}%; ${c.is_intuit ? 'background: linear-gradient(90deg, var(--accent), #88b3ff);' : ''}`;
+      const stat = noData
+        ? `<span class="nv">${escape(c.label || 'n/a')}</span>`
+        : `${c.stars}★ · ${escape(c.label || '')}`;
+      return `<div class="rating-row${noData ? ' no-data' : ''}">
+        <div class="name${c.is_intuit ? ' intuit' : ''}">${escape(c.company)}</div>
+        <div class="bar"><div class="bar-fill" style="${fillStyle}"></div></div>
+        <div class="stat">${stat}</div>
+      </div>`;
+    }).join('');
+    const noteParts = [];
+    if (p.note) noteParts.push(escape(p.note));
+    const sparseCompanies = p.companies.filter(c => c.note);
+    if (sparseCompanies.length) {
+      noteParts.push('<br><strong style="color: var(--text);">Caveats:</strong> ' +
+        sparseCompanies.map(c => `<em>${escape(c.company)}</em> — ${escape(c.note)}`).join(' · '));
+    }
+    if (state.voc?.unsupported_geos?.length && vocActivePlatform === Object.keys(platforms)[0]) {
+      const geos = state.voc.unsupported_geos.map(g => `<em>${escape(g.country)}</em>: ${escape(g.reason)}`).join(' · ');
+      noteParts.push('<br><strong style="color: var(--text);">No-coverage geos:</strong> ' + geos);
+    }
+    $('vocRatingsNote').innerHTML = noteParts.join(' ');
+  }
+
+  function renderVOCThemes() {
+    const themes = state.voc?.themes || [];
     $('vocThemesCount').textContent = themes.length;
     if (!themes.length) { $('vocThemes').innerHTML = '<div class="empty">No themes recorded this week.</div>'; return; }
     $('vocThemes').innerHTML = themes.map(t => `
@@ -560,6 +649,20 @@
         </div>
       </div>
     `).join('');
+  }
+
+  function renderVOC() {
+    if (!state.voc) {
+      $('vocOverall').innerHTML = '';
+      $('vocTabs').innerHTML = '';
+      $('vocRatings').innerHTML = '<div class="empty">No VOC data yet.</div>';
+      $('vocThemes').innerHTML = '<div class="empty">No themes yet.</div>';
+      return;
+    }
+    renderVOCOverall();
+    renderVOCTabs();
+    renderVOCRatings();
+    renderVOCThemes();
   }
 
   function renderFOG() {
