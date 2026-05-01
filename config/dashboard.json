@@ -18,6 +18,6 @@
       "scheduled_task_id": "regulatory-tracker-friday-digest"
     }
   },
-  "exec_digest_slack_channel_id": "U0860HNHS80",
-  "exec_digest_slack_channel_name": "DM:jeremy_feit (review-period destination — switch to a real channel after a few weeks)"
+  "exec_digest_slack_channel_id": "C0B14UXEB8W",
+  "exec_digest_slack_channel_name": "international_market_health"
 }
