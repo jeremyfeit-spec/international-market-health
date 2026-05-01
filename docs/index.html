@@ -158,7 +158,19 @@
   .loader { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
   .loader::after { content: " ⏳"; }
   footer { padding: 16px 32px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
-  .links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .links { display: flex; gap: 10px 16px; flex-wrap: wrap; align-items: center; }
+  .links a {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(79, 140, 255, 0.5);
+    text-underline-offset: 3px;
+    white-space: nowrap;
+  }
+  .links a:hover { text-decoration-color: var(--accent); }
+  .links a::after { content: " ↗"; opacity: 0.7; font-size: 10px; }
+  .links .label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); font-weight: 600; margin-right: 2px; }
 </style>
 </head>
 <body>
@@ -169,8 +181,11 @@
     <div class="meta" id="metaLine">Loading…</div>
   </div>
   <div class="links">
-    <a href="https://jeremyfeit-spec.github.io/international_market_pulse/" target="_blank">Market Pulse →</a>
-    <a href="https://jeremyfeit-spec.github.io/regulatory-tracker/" target="_blank">Regulatory Tracker →</a>
+    <span class="label">Related dashboards</span>
+    <a href="https://jeremyfeit-spec.github.io/international_market_pulse/" target="_blank">Market Pulse</a>
+    <a href="https://jeremyfeit-spec.github.io/regulatory-tracker/" target="_blank">Regulatory Tracker</a>
+    <a href="https://jeremyfeit-spec.github.io/einvoicing-tracker/" target="_blank">E-Invoicing Tracker</a>
+    <a href="https://jeremyfeit-spec.github.io/project-confidence/" target="_blank">Country Comparison</a>
   </div>
 </header>
 
@@ -264,9 +279,7 @@
   <div class="section-title">👟 Feet on the Ground · Events, customer meetings, market immersions</div>
   <div id="fogContainer">
     <div class="fog-empty">
-      <strong>No entries this week.</strong><br>
-      Drop notes from events, customer meetings, or market immersions into <code>feet_on_the_ground[]</code> in the digest payload.
-      Each entry needs <code>{date, country, summary, direction: "positive"|"negative"|"neutral", source}</code>.
+      <strong>Placeholder — waiting on VOA/VOC data and internal data inputs.</strong>
     </div>
   </div>
 </main>
