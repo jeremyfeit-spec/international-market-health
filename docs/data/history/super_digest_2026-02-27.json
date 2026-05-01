@@ -1,0 +1,64 @@
+{
+  "week_end": "2026-02-27",
+  "week_start": "2026-02-21",
+  "score": 4.5,
+  "components": {
+    "competitor_pressure": -0.5,
+    "regulatory_pressure": 0,
+    "cross_signal_magnifier": 0,
+    "voc_sentiment": 0.0,
+    "intuit_offensive_moves": 0,
+    "feet_on_the_ground": 0.0
+  },
+  "explainers": [
+    "1 Tier-1 competitor move in priority markets"
+  ],
+  "headline": "Sage + CPA.com integrate AICPA content into Sage Copilot; Avalara opens 1099/W-9 APIs; Xero ships UK AI data capture ahead of MTD.",
+  "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+  "data_quality": "reconstructed",
+  "kpis": {
+    "competitor_signals": 3,
+    "tier1_signals": 2,
+    "regulatory_changes": 0,
+    "urgent_mandates": 0,
+    "cross_signals": 0
+  },
+  "competitors": [
+    {
+      "company": "Sage",
+      "region": "UK / Global",
+      "tier": "t1",
+      "signal_type": "AI partnership / content integration",
+      "headline": "Sage partners with CPA.com to embed authoritative AICPA content in Sage Copilot",
+      "summary": "Sage Group plc announced a partnership with CPA.com to integrate authoritative AICPA content into Sage Copilot, its AI accounting assistant — sharpens Sage's accountant-channel positioning in the US/UK and tightens the gap with peer-AI assistants.",
+      "source_url": "https://www.accountingtoday.com/news/a-big-year-for-ai-in-accounting",
+      "source_label": "Accounting Today",
+      "date": "2026-02-25"
+    },
+    {
+      "company": "Xero",
+      "region": "UK",
+      "tier": "t1",
+      "signal_type": "Product launch (AI data capture)",
+      "headline": "Xero rolls out AI-powered data capture & extraction for UK customers ahead of MTD for Income Tax",
+      "summary": "Xero's February 2026 product update introduced AI-powered data capture and extraction for UK customers, positioning the platform ahead of MTD ITSA. Direct compete-pressure on QBO UK's MTD product narrative.",
+      "source_url": "https://blog.xero.com/small-business-resources/quarterly-updates-for-mtd-for-itsa/",
+      "source_label": "Xero Blog",
+      "date": "2026-02-26"
+    },
+    {
+      "company": "Avalara",
+      "region": "Global",
+      "tier": "t2",
+      "signal_type": "Platform / API expansion",
+      "headline": "Avalara launches 1099 and W-9 APIs for embedded compliance",
+      "summary": "Avalara opened APIs for its 1099/W-9 solutions — companies can now embed compliance workflows into ERPs, accounting platforms, e-commerce and marketplaces. Continues the agentic-tax push that Vertex is now restructuring around.",
+      "source_url": "https://www.accountingtoday.com/news/a-big-year-for-ai-in-accounting",
+      "source_label": "Accounting Today",
+      "date": "2026-02-24"
+    }
+  ],
+  "regulatory": [],
+  "cross_signals": [],
+  "generated_at": "2026-05-01T22:13:20Z"
+}

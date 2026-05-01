@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T21:59:04Z",
+  "generated_at": "2026-05-01T22:13:20Z",
   "week_start": "2026-04-24",
   "week_end": "2026-05-01",
   "review": "<p><strong>Health Score: 2.6 / 10</strong> (▼ 2.0 vs last week — Sage Tier-1 M&amp;A in priority market, 8 regulatory deadlines in 90-day hot zone including Italy SDI on 15 May, plus a UK cross-signal stacking competitor + regulator on the same accountant base).</p><p><strong>Headline:</strong> Sage's acquisition of Doyen AI is the week's biggest move — it pulls AI-native data migration directly into the Sage Intacct/Sage 200 stack, compressing implementation from weeks to days in the same UK/EU/North America mid-market QuickBooks Online Advanced is climbing into.</p><ul><li><strong>Competitor watch — Sage + Vertex tell the same story:</strong> AI is now a packaging line, not a research project. Sage is buying implementation speed; Vertex is restructuring 9% of headcount to redirect spend toward agentic tax. Avalara and Sovos likely to follow.</li><li><strong>Competitor watch — Airwallex goes brand-heavy:</strong> Spike Lee–directed Arsenal campaign across the PL run-in and 2026 World Cup signals Airwallex is willing to outspend on top-of-funnel in UK/EU, where their B2B tooling overlaps QBO Money/Bill Pay.</li><li><strong>Regulatory watch — e-invoicing wave:</strong> Italy SDI v1.9.1 (15 May), Australia Peppol target (1 Jul), France PDP→PA pilot (1 Sep), Spain AEAT draft (1 Oct). Five priority markets need product-side action this calendar year.</li><li><strong>Regulatory watch — Canada paper drop-box closure (30 Apr):</strong> CRA's permanent shutdown forces every Canadian SMB without a digital workflow into one — an immediate accountant-led migration moment.</li><li><strong>VOC — peer-set average rating 4.43★ vs Intuit 4.4★:</strong> Sage and FreeAgent both at 4.6★ on Trustpilot UK. Reddit/forum signal continues to flag 2026 price increases (UK charity 70% YoY) and forced US payroll-tax filing as Intuit-negative themes; Sage's customer-support reputation is the standout positive in the peer set.</li><li><strong>Cross-signals — UK is the loudest market:</strong> Sage M&amp;A and Airwallex's UK-anchored Arsenal campaign land the same week the UK confirms its B2B/B2G e-invoicing mandate for April 2029.</li><li><strong>Quiet markets:</strong> Germany and Spain saw regulatory motion only — no competitor moves of note. Watch DATEV and Holvi/Qonto for response.</li><li><strong>What to do:</strong> Pressure-test Intuit's UK GTM narrative against the Sage Doyen AI thesis (implementation velocity), confirm Italy SDI v1.9.1 is in the QBO compliance backlog ahead of 15 May, and respond to the QB UK pricing thread on Intuit Community.</li></ul>",
@@ -404,6 +404,20 @@
   },
   "history": [
     {
+      "week_end": "2026-02-27",
+      "score": 4.5,
+      "headline": "Sage + CPA.com integrate AICPA content into Sage Copilot; Avalara opens 1099/W-9 APIs; Xero ships UK AI data capture ahead of MTD.",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 3,
+        "tier1_signals": 2,
+        "regulatory_changes": 0,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
+    {
       "week_end": "2026-03-06",
       "score": 4.7,
       "headline": "Xero × Anthropic deal signals platform-AI baseline rising; Sage and MYOB respond.",
@@ -517,9 +531,9 @@
     },
     {
       "week_end": "2026-05-01",
-      "score": 2.9,
+      "score": 2.6,
       "headline": "Sage acquires Doyen AI; UK is loudest market this week (M&A + Airwallex + 2029 mandate confirmed).",
-      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets; 8 regulatory deadlines within 90 days; competitor + regulator both moved in 1 market",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets; 8 regulatory deadlines within 90 days; competitor + regulator both moved in 1 market; VOC tilting Intuit-negative vs peers (-0.05)",
       "data_quality": "live",
       "kpis": {
         "competitor_signals": 4,

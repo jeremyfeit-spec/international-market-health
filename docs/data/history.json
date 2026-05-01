@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-05-01T21:58:07Z",
+  "generated_at": "2026-05-01T22:13:49Z",
   "weeks": [
+    {
+      "week_end": "2026-02-27",
+      "score": 4.5,
+      "headline": "Sage + CPA.com integrate AICPA content into Sage Copilot; Avalara opens 1099/W-9 APIs; Xero ships UK AI data capture ahead of MTD.",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets",
+      "data_quality": "reconstructed",
+      "kpis": {
+        "competitor_signals": 3,
+        "tier1_signals": 2,
+        "regulatory_changes": 0,
+        "urgent_mandates": 0,
+        "cross_signals": 0
+      }
+    },
     {
       "week_end": "2026-03-06",
       "score": 4.7,
@@ -115,9 +129,9 @@
     },
     {
       "week_end": "2026-05-01",
-      "score": 2.9,
+      "score": 2.6,
       "headline": "Sage acquires Doyen AI; UK is loudest market this week (M&A + Airwallex + 2029 mandate confirmed).",
-      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets; 8 regulatory deadlines within 90 days; competitor + regulator both moved in 1 market",
+      "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets; 8 regulatory deadlines within 90 days; competitor + regulator both moved in 1 market; VOC tilting Intuit-negative vs peers (-0.05)",
       "data_quality": "live",
       "kpis": {
         "competitor_signals": 4,

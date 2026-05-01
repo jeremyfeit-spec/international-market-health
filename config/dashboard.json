@@ -45,6 +45,6 @@
       }
     }
   },
-  "history_window_weeks": 9,
-  "history_start_week": "2026-03-06"
+  "history_window_weeks": 10,
+  "history_start_week": "2026-02-27"
 }
