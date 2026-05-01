@@ -69,4 +69,46 @@ super-digest task adds a step at the end of each run to also serialize them.
 - `docs/index.html` — the dashboard (single file, no build step)
 - `docs/data/super_digest.json` — current week's synthesized payload
 - `docs/data/history/` — past weeks' digests
-- `config/` — channel IDs, sources, etc.
+- `docs/data/voc_cache.json` — last successful scrape per (platform, company)
+- `config/` — channel IDs, sources, scoring weights
+- `scripts/voc_scraper.py` — best-effort live fetch from Trustpilot, ProductReview, G2, Capterra
+- `scripts/build_voc.py` — turns the scraped cache into the VOC bucket
+- `scripts/build_final_digest.py` — assembles `super_digest.json`
+- `scripts/refresh_helper.py` — local HTTP server for the dashboard's "Refresh" button
+
+## Refreshing VOC on demand
+
+The dashboard has a **Refresh** button next to the Voice of Customer section.
+Clicking it triggers a real scrape of Trustpilot/G2/Capterra/ProductReview
+*on your Mac* (the GitHub Pages site can't scrape). To enable the button:
+
+```bash
+# Open a terminal on your Mac
+cd ~/Documents/international-market-health
+python3 scripts/refresh_helper.py
+```
+
+Leave that terminal running. Now click **Refresh** in the dashboard. The button
+spins, you'll see live log output, and when it finishes the dashboard reloads
+with the new numbers.
+
+If the button reports "Cannot reach the refresh helper", the script isn't
+running — start it as above and try again.
+
+The helper listens on `localhost:7325` only — never exposed to the network.
+
+## Auto-refresh (Friday cron)
+
+The Friday `super-digest-friday` task automatically runs the same three-step
+pipeline (`voc_scraper.py` → `build_voc.py` → `build_final_digest.py`) before
+generating the weekly Slack digest. No manual action needed for the weekly
+cycle.
+
+## Scraper honesty
+
+`voc_scraper.py` is a best-effort direct fetch — no paid scraping service. It
+works reliably for Trustpilot and ProductReview.com.au. G2 and Capterra have
+strong bot detection and may fail; when they do, the cache keeps the
+last-successful value (with a `last_successful_at` timestamp so you can see
+how stale it is) and the dashboard surfaces the staleness honestly via a pill
+under the section title.

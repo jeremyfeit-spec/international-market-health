@@ -175,6 +175,41 @@
   .rating-row .name.intuit ~ .bar .bar-fill { background: linear-gradient(90deg, var(--accent), #88b3ff); }
   .rating-row .stat { font-size: 12px; color: var(--muted); text-align: right; }
   .voc-note { font-size: 11.5px; color: var(--muted); padding: 8px 18px 14px; border-top: 1px solid var(--border); line-height: 1.5; }
+  .voc-section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .refresh-voc {
+    font-size: 11.5px; font-weight: 500; letter-spacing: 0.02em;
+    background: var(--panel); color: var(--muted);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 4px 12px; cursor: pointer;
+    text-transform: none;
+  }
+  .refresh-voc:hover { color: var(--text); border-color: var(--accent); background: #1a1f2c; }
+  .refresh-voc:disabled { opacity: 0.5; cursor: not-allowed; }
+  .refresh-voc.spinning #refreshIcon { display: inline-block; animation: spin 1s linear infinite; }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .voc-status {
+    font-size: 11.5px; color: var(--muted);
+    margin: 0 0 12px;
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  }
+  .voc-status .pill { background: var(--panel-2); border: 1px solid var(--border);
+    border-radius: 999px; padding: 2px 10px; font-size: 11px; }
+  .voc-status .pill.ok { color: #86efac; border-color: #15402a; background: #0f2a1c; }
+  .voc-status .pill.warn { color: #fde68a; border-color: #4a3b13; background: #2a230d; }
+  .voc-status .pill.fail { color: #fca5a5; border-color: #5b1f1f; background: #2a1414; }
+  .voc-status .toast {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 10px; font-size: 11px;
+    color: var(--text); max-width: 600px;
+  }
+  .voc-status .toast.error { border-color: #5b1f1f; }
+  .voc-status pre.scrape-log {
+    width: 100%; background: var(--panel); border: 1px solid var(--border);
+    border-radius: 6px; padding: 8px 12px; font-size: 11px;
+    color: var(--muted); margin: 0; max-height: 140px; overflow: auto;
+    white-space: pre-wrap;
+  }
+
   .voc-tabs { display: flex; gap: 6px; padding: 12px 18px 8px; border-bottom: 1px solid var(--border);
     overflow-x: auto; flex-wrap: wrap; }
   .voc-tab { font-size: 11.5px; padding: 5px 11px; border-radius: 999px;
@@ -198,6 +233,44 @@
   .voc-overall .card.intuit .name { color: #88b3ff; }
   .voc-overall .card .stars { font-size: 22px; font-weight: 700; margin-top: 2px; }
   .voc-overall .card .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .voc-overall .card .card-toggle { color: var(--accent); cursor: pointer; }
+  .voc-overall .card .card-toggle:hover { color: #88b3ff; }
+  .voc-overall .card .card-breakdown {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 11.5px;
+  }
+  .voc-overall .card.expanded .card-breakdown { display: block; }
+  .voc-overall .card .bd-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    padding: 4px 0;
+    color: var(--muted);
+    text-decoration: none;
+    align-items: baseline;
+  }
+  .voc-overall .card .bd-row:hover { color: var(--text); }
+  .voc-overall .card .bd-row:hover .bd-platform { text-decoration: underline; text-underline-offset: 2px; }
+  .voc-overall .card .bd-row::after { content: "↗"; font-size: 9px; opacity: 0.5; position: relative; right: 0; }
+  .voc-overall .card .bd-stars { color: var(--text); font-weight: 600; }
+  .voc-overall .card.intuit .bd-stars { color: #88b3ff; }
+  .voc-overall .card .bd-count { font-size: 10.5px; }
+
+  .rating-row .stat .stat-link, .rating-row .stat .nv-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(138, 147, 166, 0.3);
+    padding-bottom: 1px;
+  }
+  .rating-row .stat .stat-link:hover, .rating-row .stat .nv-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .rating-row.no-presence .stat { font-style: italic; }
+  .rating-row.no-presence .bar { opacity: 0.3; }
 
   .rating-row .stat .nv { color: #fbcfe8; }
   .rating-row.no-data .name { color: var(--muted); font-style: italic; }
@@ -328,8 +401,14 @@
   </section>
 
   <!-- VOC Section -->
-  <div class="section-title">🗣 Voice of Customer · International (non-US)</div>
+  <div class="section-title voc-section-title">
+    <span>🗣 Voice of Customer · International (non-US)</span>
+    <button class="refresh-voc" id="refreshVOC" title="Run scraper locally to refresh ratings (requires the refresh_helper.py to be running on your machine)">
+      <span id="refreshIcon">↻</span> <span id="refreshLabel">Refresh</span>
+    </button>
+  </div>
   <div class="voc-overall" id="vocOverall"></div>
+  <div class="voc-status" id="vocStatus"></div>
   <div class="voc-grid">
     <div class="feed">
       <h3>⭐ Peer ratings <span class="src" id="vocPlatformLabel">—</span> <span class="count" id="vocRatingsCount">—</span></h3>
@@ -560,10 +639,26 @@
       const isIntuit = name.toLowerCase().includes('intuit') || name.toLowerCase().includes('quickbooks');
       const stars = info.stars != null ? info.stars.toFixed(2) : '—';
       const platforms = info.platforms_counted || 0;
-      return `<div class="card${isIntuit ? ' intuit' : ''}">
+      // Breakdown tooltip: per-platform contribution to the weighted average
+      const breakdown = (info.breakdown || []);
+      const tooltipLines = breakdown.length
+        ? breakdown.map(b => `${b.platform}: ${b.stars}★ (${b.label || (b.review_count || '?') + ' reviews'})`).join('\n')
+        : 'No data sources contributed to this average.';
+      const breakdownHTML = breakdown.length
+        ? `<div class="card-breakdown">
+            ${breakdown.map(b => `
+              <a class="bd-row" href="${escape(b.source_url || '#')}" target="_blank" rel="noopener">
+                <span class="bd-platform">${escape(b.platform)}</span>
+                <span class="bd-stars">${b.stars}★</span>
+                <span class="bd-count">${escape(b.label || '')}</span>
+              </a>`).join('')}
+          </div>`
+        : '';
+      return `<div class="card${isIntuit ? ' intuit' : ''}" title="${escape(tooltipLines)}">
         <div class="name">${escape(name)}</div>
         <div class="stars">${stars}★</div>
-        <div class="sub">across ${platforms} platform${platforms === 1 ? '' : 's'}</div>
+        <div class="sub">across ${platforms} platform${platforms === 1 ? '' : 's'} · <a class="card-toggle" href="javascript:void(0)" onclick="this.closest('.card').classList.toggle('expanded')">show sources</a></div>
+        ${breakdownHTML}
       </div>`;
     }).join('');
     const intuitOverall = summary.intuit_overall_stars;
@@ -605,15 +700,27 @@
     const max = 5;
     $('vocRatings').innerHTML = p.companies.map(c => {
       const noData = c.stars == null;
+      const noPresence = c.status === 'no_meaningful_presence';
       const fillStyle = noData ? 'width: 0' :
         `width: ${(c.stars / max) * 100}%; ${c.is_intuit ? 'background: linear-gradient(90deg, var(--accent), #88b3ff);' : ''}`;
-      const stat = noData
-        ? `<span class="nv">${escape(c.label || 'n/a')}</span>`
-        : `${c.stars}★ · ${escape(c.label || '')}`;
-      return `<div class="rating-row${noData ? ' no-data' : ''}">
+      let statHTML;
+      if (noPresence) {
+        statHTML = `<span class="nv">no presence</span>`;
+      } else if (noData) {
+        // Has presence but star value not surfaced — still link to the source so the user can verify
+        statHTML = c.source_url
+          ? `<a href="${escape(c.source_url)}" target="_blank" class="nv-link">${escape(c.label || 'n/a')} · check source ↗</a>`
+          : `<span class="nv">${escape(c.label || 'n/a')}</span>`;
+      } else {
+        statHTML = c.source_url
+          ? `<a href="${escape(c.source_url)}" target="_blank" class="stat-link">${c.stars}★ · ${escape(c.label || '')} ↗</a>`
+          : `${c.stars}★ · ${escape(c.label || '')}`;
+      }
+      const tooltip = c.note ? c.note : (noData ? 'Star rating not consistently surfaced on the source page; review count is shown when available.' : '');
+      return `<div class="rating-row${noData ? ' no-data' : ''}${noPresence ? ' no-presence' : ''}" title="${escape(tooltip)}">
         <div class="name${c.is_intuit ? ' intuit' : ''}">${escape(c.company)}</div>
         <div class="bar"><div class="bar-fill" style="${fillStyle}"></div></div>
-        <div class="stat">${stat}</div>
+        <div class="stat">${statHTML}</div>
       </div>`;
     }).join('');
     const noteParts = [];
@@ -634,7 +741,13 @@
     const themes = state.voc?.themes || [];
     $('vocThemesCount').textContent = themes.length;
     if (!themes.length) { $('vocThemes').innerHTML = '<div class="empty">No themes recorded this week.</div>'; return; }
-    $('vocThemes').innerHTML = themes.map(t => `
+    $('vocThemes').innerHTML = themes.map(t => {
+      const seenLabel = t.seen_at
+        ? (t.first_seen_at && t.first_seen_at !== t.seen_at
+           ? `📅 last seen ${escape(t.seen_at)} · first seen ${escape(t.first_seen_at)}`
+           : `📅 ${escape(t.seen_at)}`)
+        : '';
+      return `
       <div class="item">
         <div class="row1">
           <span class="tag ${t.sentiment === 'positive' ? 'positive' : 'negative'}">${t.sentiment === 'positive' ? '👍 positive' : '👎 negative'}</span>
@@ -644,11 +757,117 @@
         <div class="title">${escape(t.theme)}</div>
         <div class="summary">${escape(t.sample_quote || '')}</div>
         <div class="meta">
+          ${seenLabel ? `<span>${seenLabel}</span>` : ''}
           ${t.country_context ? `<span>📍 ${escape(t.country_context)}</span>` : ''}
           ${t.source_url ? `<a href="${escape(t.source_url)}" target="_blank">🔗 source</a>` : ''}
         </div>
-      </div>
-    `).join('');
+      </div>`;
+    }).join('');
+  }
+
+  function renderVOCStatus() {
+    const ss = state.voc?.scrape_status;
+    const el = $('vocStatus');
+    if (!el) return;
+    if (!ss || !ss.cache_present) {
+      el.innerHTML = `<span class="pill warn">Using baseline · scraper not yet run</span>
+        <span class="toast">Numbers are from the seeded baseline. Run <code>python3 scripts/refresh_helper.py</code> on your Mac, then click <strong>Refresh</strong> to pull live values.</span>`;
+      return;
+    }
+    const ts = ss.last_run_at ? new Date(ss.last_run_at).toLocaleString() : 'unknown';
+    const ok = ss.successes || 0;
+    const failed = ss.failures || 0;
+    const pillClass = failed === 0 ? 'ok' : (ok === 0 ? 'fail' : 'warn');
+    el.innerHTML =
+      `<span class="pill ${pillClass}">Live: ${ok} OK · ${failed} failed</span>
+       <span class="pill">Last refresh: ${escape(ts)}</span>` +
+      (failed > 0 ? `<span class="toast">Some sources blocked the scraper this run — those bars use the previous successful value (or baseline if never scraped). Bars with the dotted underline are clickable to verify directly.</span>` : '');
+  }
+
+  // ---------- Refresh VOC button ----------
+  const REFRESH_HELPER = 'http://localhost:7325';
+  let refreshPollHandle = null;
+
+  async function startRefresh() {
+    const btn = $('refreshVOC');
+    btn.disabled = true;
+    btn.classList.add('spinning');
+    $('refreshLabel').textContent = 'Refreshing…';
+    try {
+      const r = await fetch(REFRESH_HELPER + '/refresh', { method: 'POST' });
+      if (r.status === 409) {
+        showRefreshToast('A refresh is already running. Watching it…', false);
+      } else if (!r.ok) {
+        throw new Error('helper returned ' + r.status);
+      } else {
+        showRefreshToast('Refresh started…', false);
+      }
+      pollRefresh();
+    } catch (e) {
+      btn.disabled = false; btn.classList.remove('spinning');
+      $('refreshLabel').textContent = 'Refresh';
+      showRefreshToast(
+        '⚠ Cannot reach the refresh helper at ' + REFRESH_HELPER + '. ' +
+        'Open a terminal and run: python3 scripts/refresh_helper.py — then try again.',
+        true
+      );
+    }
+  }
+
+  function pollRefresh() {
+    if (refreshPollHandle) clearInterval(refreshPollHandle);
+    refreshPollHandle = setInterval(async () => {
+      try {
+        const r = await fetch(REFRESH_HELPER + '/status');
+        if (!r.ok) return;
+        const status = await r.json();
+        if (status.current_job === 'running') {
+          // Update toast with last log line
+          const tail = status.stdout_tail || [];
+          const last = tail[tail.length - 1] || 'Working…';
+          showRefreshToast('Working: ' + last, false, status.stdout_tail);
+        } else if (status.current_job === 'succeeded') {
+          clearInterval(refreshPollHandle);
+          $('refreshVOC').disabled = false;
+          $('refreshVOC').classList.remove('spinning');
+          $('refreshLabel').textContent = 'Refresh';
+          const summary = status.summary || {};
+          showRefreshToast(
+            `✓ Done · ${summary.successes ?? '?'} OK / ${summary.failures ?? '?'} failed. Reloading data…`,
+            false,
+            status.stdout_tail
+          );
+          // Re-fetch super_digest to pick up new VOC values
+          setTimeout(async () => {
+            const sd = await loadJSON(SUPER_URL);
+            if (sd) { state.voc = sd.voc; renderVOC(); }
+          }, 800);
+        } else if (status.current_job === 'failed') {
+          clearInterval(refreshPollHandle);
+          $('refreshVOC').disabled = false;
+          $('refreshVOC').classList.remove('spinning');
+          $('refreshLabel').textContent = 'Refresh';
+          showRefreshToast('✗ Refresh failed: ' + (status.error || 'unknown'), true, status.stdout_tail);
+        }
+      } catch (e) {
+        // Helper went away mid-job — stop polling
+        clearInterval(refreshPollHandle);
+        $('refreshVOC').disabled = false;
+        $('refreshVOC').classList.remove('spinning');
+        $('refreshLabel').textContent = 'Refresh';
+      }
+    }, 1500);
+  }
+
+  function showRefreshToast(text, isError, logTail) {
+    const el = $('vocStatus');
+    if (!el) return;
+    const cls = isError ? 'toast error' : 'toast';
+    let html = `<span class="${cls}">${escape(text)}</span>`;
+    if (logTail && logTail.length) {
+      html += `<pre class="scrape-log">${escape(logTail.slice(-12).join('\n'))}</pre>`;
+    }
+    el.innerHTML = html;
   }
 
   function renderVOC() {
@@ -660,6 +879,7 @@
       return;
     }
     renderVOCOverall();
+    renderVOCStatus();
     renderVOCTabs();
     renderVOCRatings();
     renderVOCThemes();
@@ -724,6 +944,11 @@
     p.classList.add('active');
     state.filter.tier = p.dataset.tier; renderCompetitors();
   }));
+
+  // Refresh VOC button
+  if ($('refreshVOC')) {
+    $('refreshVOC').addEventListener('click', startRefresh);
+  }
 
   try {
     const saved = JSON.parse(localStorage.getItem('imh.filter') || '{}');

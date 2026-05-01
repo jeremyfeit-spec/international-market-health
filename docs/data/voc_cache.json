@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "platforms": {
+    "trustpilot_uk": {
+      "companies": {
+        "QuickBooks (Intuit)": {
+          "company": "QuickBooks (Intuit)",
+          "url": "https://uk.trustpilot.com/review/quickbooks.intuit.com",
+          "is_intuit": true,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Xero": {
+          "company": "Xero",
+          "url": "https://uk.trustpilot.com/review/www.xero.com",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Sage": {
+          "company": "Sage",
+          "url": "https://www.trustpilot.com/review/sage.com",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "FreeAgent": {
+          "company": "FreeAgent",
+          "url": "https://uk.trustpilot.com/review/www.freeagent.com",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        }
+      }
+    },
+    "trustpilot_au": {
+      "companies": {
+        "QuickBooks (Intuit)": {
+          "company": "QuickBooks (Intuit)",
+          "url": "https://au.trustpilot.com/review/quickbooks.intuit.com/au",
+          "is_intuit": true,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Xero": {
+          "company": "Xero",
+          "url": "https://au.trustpilot.com/review/www.xero.com",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "MYOB": {
+          "company": "MYOB",
+          "url": "https://au.trustpilot.com/review/myob.com",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        }
+      }
+    },
+    "trustpilot_ca": {
+      "companies": {
+        "QuickBooks (Intuit)": {
+          "company": "QuickBooks (Intuit)",
+          "url": "https://www.trustpilot.com/review/quickbooks.ca",
+          "is_intuit": true,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Xero": {
+          "company": "Xero",
+          "url": "https://ca.trustpilot.com/review/www.xero.com",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        }
+      }
+    },
+    "productreview_au": {
+      "companies": {
+        "QuickBooks (Intuit)": {
+          "company": "QuickBooks (Intuit)",
+          "url": "https://www.productreview.com.au/listings/quickbooks",
+          "is_intuit": true,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Xero": {
+          "company": "Xero",
+          "url": "https://www.productreview.com.au/listings/xero",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "MYOB": {
+          "company": "MYOB",
+          "url": "https://www.productreview.com.au/listings/myob",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        }
+      }
+    },
+    "g2": {
+      "companies": {
+        "QuickBooks Online (Intuit)": {
+          "company": "QuickBooks Online (Intuit)",
+          "url": "https://www.g2.com/products/intuit-quickbooks/reviews",
+          "is_intuit": true,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Xero": {
+          "company": "Xero",
+          "url": "https://www.g2.com/products/xero/reviews",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Sage Intacct": {
+          "company": "Sage Intacct",
+          "url": "https://www.g2.com/products/sage-intacct/reviews",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Sage 50cloud Accounting": {
+          "company": "Sage 50cloud Accounting",
+          "url": "https://www.g2.com/products/sage-50cloud-accounting/reviews",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "MYOB": {
+          "company": "MYOB",
+          "url": "https://www.g2.com/products/myob/reviews",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        }
+      }
+    },
+    "capterra": {
+      "companies": {
+        "QuickBooks Online (Intuit)": {
+          "company": "QuickBooks Online (Intuit)",
+          "url": "https://www.capterra.com/p/190778/QuickBooks-Online/reviews/",
+          "is_intuit": true,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Xero": {
+          "company": "Xero",
+          "url": "https://www.capterra.com/p/120109/Xero/reviews/",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "Sage Accounting": {
+          "company": "Sage Accounting",
+          "url": "https://www.capterra.com/p/168740/Sage-One-UK/reviews/",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        },
+        "FreeAgent": {
+          "company": "FreeAgent",
+          "url": "https://www.capterra.com/p/122008/FreeAgent/reviews/",
+          "is_intuit": false,
+          "fetched_at": "2026-05-01T22:55:11Z",
+          "fetch_status": "fetch_failed",
+          "fetch_error": "request_error: ProxyError"
+        }
+      }
+    }
+  },
+  "last_run_at": "2026-05-01T22:55:11Z",
+  "last_run_summary": {
+    "successes": 0,
+    "failures": 21,
+    "ran_at": "2026-05-01T22:55:11Z"
+  }
+}

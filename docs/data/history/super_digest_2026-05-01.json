@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T22:38:26Z",
+  "generated_at": "2026-05-01T22:56:38Z",
   "week_start": "2026-04-24",
   "week_end": "2026-05-01",
   "review": "<p><strong>Health Score: 2.9 / 10</strong> (▼ 1.7 vs last week — Sage Tier-1 M&amp;A, 8 regulatory deadlines in the 90-day hot zone, and a UK cross-signal stacking competitor + regulator on the same accountant base).</p><p><strong>For the product team this week:</strong></p><ul><li><strong>Italy SDI v1.9.1 ships 15 May — 14 days out.</strong> Confirm QBO compliance backlog is on track for VAT-group and sports-worker updates. This is the closest hard deadline in any priority market.</li><li><strong>Sage acquired Doyen AI — implementation speed becomes a competitive feature.</strong> Sage is now positioned to compress Intacct / Sage 200 go-lives from weeks to days in the same UK/EU/NA mid-market QBO Advanced is climbing into. Pressure-test our onboarding/data-migration narrative against this thesis before next QBR.</li><li><strong>Canada paper drop-box closure (30 Apr) creates an immediate accountant-led migration moment.</strong> Every Canadian SMB without a digital workflow is now forced into one — short window to capture them. Worth a fast assist-channel push.</li><li><strong>VOC: Intuit 4.4★ vs peer-set avg 4.43★ on Trustpilot UK.</strong> Negative themes clustering on 2026 price increases (UK charity 70% YoY) and the mandatory July payroll-tax-filing change. Sage and FreeAgent both 4.6★ — support reputation is the gap.</li></ul><details class=\"more-context\"><summary>More context — secondary signals &amp; quiet markets</summary><ul><li><strong>Vertex restructuring (9% headcount) toward agentic tax.</strong> Confirms the AI-as-packaging trend Sage's Doyen deal embodies. Avalara and Sovos likely to follow within the quarter.</li><li><strong>Airwallex × Arsenal campaign (Spike Lee–directed, 2-min film).</strong> Largest brand spend in Airwallex's history, running through the PL run-in and 2026 World Cup. UK/EU B2B-tooling overlap with QBO Money/Bill Pay — track for share-of-voice impact, not immediate product action.</li><li><strong>Other e-invoicing dates on the horizon:</strong> Australia Peppol target (1 Jul), France PDP→PA pilot (1 Sep), Spain AEAT draft (1 Oct). Five priority markets need product-side action this calendar year — sequence them now even though only Italy is &lt;30 days.</li><li><strong>Cross-signals — UK is the loudest market this week.</strong> Sage M&amp;A and Airwallex Arsenal lead in UK alongside the UK confirming its 2029 B2B/B2G e-invoicing mandate. Three forces pulling on the same accountant base; second-order effect on partner attention.</li><li><strong>Quiet markets:</strong> Germany and Spain saw regulatory motion only — no competitor moves. Watch DATEV and Holvi/Qonto for response in coming weeks.</li></ul></details>",
@@ -257,7 +257,10 @@
             "label": "16.5k",
             "status": "exists",
             "source_url": "https://uk.trustpilot.com/review/quickbooks.intuit.com",
-            "is_intuit": true
+            "is_intuit": true,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Xero",
@@ -266,7 +269,10 @@
             "label": "~11k",
             "status": "exists",
             "source_url": "https://uk.trustpilot.com/review/www.xero.com",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Sage",
@@ -275,7 +281,10 @@
             "label": "15k+",
             "status": "exists",
             "source_url": "https://www.trustpilot.com/review/sage.com",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "FreeAgent",
@@ -284,7 +293,10 @@
             "label": "2.8k",
             "status": "exists",
             "source_url": "https://uk.trustpilot.com/review/www.freeagent.com",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           }
         ],
         "note": "Highest-volume platform globally for UK reviews. Numbers stable week-to-week."
@@ -302,7 +314,10 @@
             "label": "235",
             "status": "exists",
             "source_url": "https://au.trustpilot.com/review/quickbooks.intuit.com/au",
-            "is_intuit": true
+            "is_intuit": true,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Xero",
@@ -312,7 +327,10 @@
             "status": "exists",
             "source_url": "https://au.trustpilot.com/review/www.xero.com",
             "is_intuit": false,
-            "note": "Trustpilot AU surfaces the global Xero page; star rating identical to UK view."
+            "note": "Trustpilot AU surfaces the global Xero page; star rating identical to UK view.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "MYOB",
@@ -322,7 +340,10 @@
             "status": "exists_low_volume",
             "source_url": "https://au.trustpilot.com/review/myob.com",
             "is_intuit": false,
-            "note": "Stars not surfaced consistently on the AU page; 396 reviews indicates 'mixed' qualitative band."
+            "note": "Stars not surfaced consistently on the AU page; 396 reviews indicates 'mixed' qualitative band.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Sage",
@@ -351,7 +372,10 @@
             "status": "exists",
             "source_url": "https://www.productreview.com.au/listings/quickbooks",
             "is_intuit": true,
-            "note": "Listed but page-level summary star not consistently surfaced."
+            "note": "Listed but page-level summary star not consistently surfaced.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Xero",
@@ -360,7 +384,10 @@
             "label": "see source",
             "status": "exists",
             "source_url": "https://www.productreview.com.au/listings/xero",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "MYOB",
@@ -369,7 +396,10 @@
             "label": "3.5k",
             "status": "exists",
             "source_url": "https://www.productreview.com.au/listings/myob",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           }
         ],
         "note": "AU-specific consumer review site. Highest-volume AU signal for MYOB. Cancellation friction and support hold times are persistent themes across all three."
@@ -388,7 +418,10 @@
             "status": "exists_low_volume",
             "source_url": "https://www.trustpilot.com/review/quickbooks.ca",
             "is_intuit": true,
-            "note": "Only 10 reviews on quickbooks.ca page — sample is too small to compute a stable star rating."
+            "note": "Only 10 reviews on quickbooks.ca page — sample is too small to compute a stable star rating.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Xero",
@@ -398,7 +431,10 @@
             "status": "exists",
             "source_url": "https://ca.trustpilot.com/review/www.xero.com",
             "is_intuit": false,
-            "note": "Trustpilot CA surfaces the global Xero page."
+            "note": "Trustpilot CA surfaces the global Xero page.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           }
         ],
         "note": "Canada's Trustpilot signal is sparse — most users land on the global QBO/Intuit page or G2/Capterra. Treat country-page numbers as low-volume."
@@ -417,7 +453,10 @@
             "status": "exists",
             "source_url": "https://www.g2.com/products/intuit-quickbooks/reviews",
             "is_intuit": true,
-            "note": "G2 has multiple QBO product slugs; QBO Advanced 4.5★/353, QBO Payroll 4.4★/484. Using Payroll as representative of the post-purchase experience."
+            "note": "G2 has multiple QBO product slugs; QBO Advanced 4.5★/353, QBO Payroll 4.4★/484. Using Payroll as representative of the post-purchase experience.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Xero",
@@ -426,7 +465,10 @@
             "label": "1.7k",
             "status": "exists",
             "source_url": "https://www.g2.com/products/xero/reviews",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Sage Intacct",
@@ -436,7 +478,10 @@
             "status": "exists",
             "source_url": "https://www.g2.com/products/sage-intacct/reviews",
             "is_intuit": false,
-            "note": "Sage Intacct is the mid-market segment most directly competing with QBO Advanced."
+            "note": "Sage Intacct is the mid-market segment most directly competing with QBO Advanced.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Sage 50cloud Accounting",
@@ -446,7 +491,10 @@
             "status": "exists",
             "source_url": "https://www.g2.com/products/sage-50cloud-accounting/reviews",
             "is_intuit": false,
-            "note": "Sage 50 segment competes with QBO Plus."
+            "note": "Sage 50 segment competes with QBO Plus.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "MYOB",
@@ -455,7 +503,10 @@
             "label": "see source",
             "status": "exists",
             "source_url": "https://www.g2.com/products/myob/reviews",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           }
         ],
         "note": "G2 is the cleanest cross-platform anchor. QBO Advanced (4.5★) and Xero (4.4★) are essentially tied; Sage Intacct (4.3★) just behind."
@@ -474,7 +525,10 @@
             "status": "exists",
             "source_url": "https://www.capterra.com/p/190778/QuickBooks-Online/reviews/",
             "is_intuit": true,
-            "note": "Capterra page rating not consistently surfaced in summary; ~4.3★ is the typical aggregated value."
+            "note": "Capterra page rating not consistently surfaced in summary; ~4.3★ is the typical aggregated value.",
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Xero",
@@ -483,7 +537,10 @@
             "label": "3.2k",
             "status": "exists",
             "source_url": "https://www.capterra.com/p/120109/Xero/reviews/",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "Sage Accounting",
@@ -492,7 +549,10 @@
             "label": "see source",
             "status": "exists",
             "source_url": "https://www.capterra.com/p/168740/Sage-One-UK/reviews/",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "FreeAgent",
@@ -501,7 +561,10 @@
             "label": "see source",
             "status": "exists",
             "source_url": "https://www.capterra.com/p/122008/FreeAgent/reviews/",
-            "is_intuit": false
+            "is_intuit": false,
+            "data_source": "baseline_fallback",
+            "scrape_status": "fetch_failed",
+            "last_successful_at": null
           },
           {
             "company": "MYOB Business",
@@ -525,6 +588,44 @@
           "Trustpilot AU",
           "G2",
           "Capterra"
+        ],
+        "breakdown": [
+          {
+            "platform_id": "trustpilot_uk",
+            "platform": "Trustpilot UK",
+            "stars": 4.4,
+            "review_count": 16539,
+            "label": "16.5k",
+            "source_url": "https://uk.trustpilot.com/review/quickbooks.intuit.com",
+            "matched_company": "QuickBooks (Intuit)"
+          },
+          {
+            "platform_id": "trustpilot_au",
+            "platform": "Trustpilot AU",
+            "stars": 3.1,
+            "review_count": 235,
+            "label": "235",
+            "source_url": "https://au.trustpilot.com/review/quickbooks.intuit.com/au",
+            "matched_company": "QuickBooks (Intuit)"
+          },
+          {
+            "platform_id": "g2",
+            "platform": "G2",
+            "stars": 4.4,
+            "review_count": 484,
+            "label": "484 (Payroll segment)",
+            "source_url": "https://www.g2.com/products/intuit-quickbooks/reviews",
+            "matched_company": "QuickBooks Online (Intuit)"
+          },
+          {
+            "platform_id": "capterra",
+            "platform": "Capterra",
+            "stars": 4.3,
+            "review_count": 7900,
+            "label": "7.9k (approx)",
+            "source_url": "https://www.capterra.com/p/190778/QuickBooks-Online/reviews/",
+            "matched_company": "QuickBooks Online (Intuit)"
+          }
         ]
       },
       "Xero": {
@@ -536,6 +637,53 @@
           "Trustpilot CA",
           "G2",
           "Capterra"
+        ],
+        "breakdown": [
+          {
+            "platform_id": "trustpilot_uk",
+            "platform": "Trustpilot UK",
+            "stars": 4.1,
+            "review_count": 11000,
+            "label": "~11k",
+            "source_url": "https://uk.trustpilot.com/review/www.xero.com",
+            "matched_company": "Xero"
+          },
+          {
+            "platform_id": "trustpilot_au",
+            "platform": "Trustpilot AU",
+            "stars": 4.1,
+            "review_count": 11000,
+            "label": "~11k (global page)",
+            "source_url": "https://au.trustpilot.com/review/www.xero.com",
+            "matched_company": "Xero"
+          },
+          {
+            "platform_id": "trustpilot_ca",
+            "platform": "Trustpilot CA",
+            "stars": 4.1,
+            "review_count": 11000,
+            "label": "~11k (global page)",
+            "source_url": "https://ca.trustpilot.com/review/www.xero.com",
+            "matched_company": "Xero"
+          },
+          {
+            "platform_id": "g2",
+            "platform": "G2",
+            "stars": 4.4,
+            "review_count": 1674,
+            "label": "1.7k",
+            "source_url": "https://www.g2.com/products/xero/reviews",
+            "matched_company": "Xero"
+          },
+          {
+            "platform_id": "capterra",
+            "platform": "Capterra",
+            "stars": 4.4,
+            "review_count": 3237,
+            "label": "3.2k",
+            "source_url": "https://www.capterra.com/p/120109/Xero/reviews/",
+            "matched_company": "Xero"
+          }
         ]
       },
       "Sage": {
@@ -546,6 +694,44 @@
           "G2",
           "G2",
           "Capterra"
+        ],
+        "breakdown": [
+          {
+            "platform_id": "trustpilot_uk",
+            "platform": "Trustpilot UK",
+            "stars": 4.6,
+            "review_count": 15000,
+            "label": "15k+",
+            "source_url": "https://www.trustpilot.com/review/sage.com",
+            "matched_company": "Sage"
+          },
+          {
+            "platform_id": "g2",
+            "platform": "G2",
+            "stars": 4.3,
+            "review_count": 4093,
+            "label": "4.1k",
+            "source_url": "https://www.g2.com/products/sage-intacct/reviews",
+            "matched_company": "Sage Intacct"
+          },
+          {
+            "platform_id": "g2",
+            "platform": "G2",
+            "stars": 3.9,
+            "review_count": 156,
+            "label": "156",
+            "source_url": "https://www.g2.com/products/sage-50cloud-accounting/reviews",
+            "matched_company": "Sage 50cloud Accounting"
+          },
+          {
+            "platform_id": "capterra",
+            "platform": "Capterra",
+            "stars": 4.2,
+            "review_count": null,
+            "label": "see source",
+            "source_url": "https://www.capterra.com/p/168740/Sage-One-UK/reviews/",
+            "matched_company": "Sage Accounting"
+          }
         ]
       },
       "FreeAgent": {
@@ -554,6 +740,26 @@
         "platforms": [
           "Trustpilot UK",
           "Capterra"
+        ],
+        "breakdown": [
+          {
+            "platform_id": "trustpilot_uk",
+            "platform": "Trustpilot UK",
+            "stars": 4.6,
+            "review_count": 2794,
+            "label": "2.8k",
+            "source_url": "https://uk.trustpilot.com/review/www.freeagent.com",
+            "matched_company": "FreeAgent"
+          },
+          {
+            "platform_id": "capterra",
+            "platform": "Capterra",
+            "stars": 4.5,
+            "review_count": null,
+            "label": "see source",
+            "source_url": "https://www.capterra.com/p/122008/FreeAgent/reviews/",
+            "matched_company": "FreeAgent"
+          }
         ]
       },
       "MYOB": {
@@ -561,8 +767,27 @@
         "platforms_counted": 1,
         "platforms": [
           "ProductReview.com.au"
+        ],
+        "breakdown": [
+          {
+            "platform_id": "productreview_au",
+            "platform": "ProductReview.com.au",
+            "stars": 3.6,
+            "review_count": 3463,
+            "label": "3.5k",
+            "source_url": "https://www.productreview.com.au/listings/myob",
+            "matched_company": "MYOB"
+          }
         ]
       }
+    },
+    "scrape_status": {
+      "cache_present": true,
+      "last_run_at": "2026-05-01T22:55:11Z",
+      "successes": 0,
+      "failures": 21,
+      "scraped_entries": 0,
+      "stale_entries": 21
     },
     "unsupported_geos": [
       {
@@ -587,7 +812,9 @@
         ],
         "sample_quote": "AU users report 50% increases landing without warning; long-time customers say preset configurations get reset and they can't change to a lower plan without losing data",
         "source_url": "https://au.trustpilot.com/review/quickbooks.intuit.com/au",
-        "country_context": "Australia"
+        "country_context": "Australia",
+        "seen_at": "2026-04-29",
+        "first_seen_at": "2026-04-15"
       },
       {
         "theme": "2026 UK price increases — 70% YoY for some accounts",
@@ -599,7 +826,9 @@
         ],
         "sample_quote": "UK charity reports cost rising from £32+VAT/mo in 2022 to £56+VAT/mo from January 2026 — almost 70% price increase",
         "source_url": "https://quickbooks.intuit.com/learn-support/en-uk/other-questions/2026-massive-price-increase/00/1591627",
-        "country_context": "UK"
+        "country_context": "UK",
+        "seen_at": "2026-04-30",
+        "first_seen_at": "2026-01-12"
       },
       {
         "theme": "QBO Canada — technical reliability and support escalation issues",
@@ -610,7 +839,9 @@
         ],
         "sample_quote": "Repeated technical problems on T4 processing, bill management; customers report endless loops between departments with reps refusing to escalate",
         "source_url": "https://www.trustpilot.com/review/quickbooks.ca",
-        "country_context": "Canada"
+        "country_context": "Canada",
+        "seen_at": "2026-04-28",
+        "first_seen_at": "2026-03-04"
       },
       {
         "theme": "Customer support quality — Sage standout positive",
@@ -622,7 +853,9 @@
         ],
         "sample_quote": "Sage Business Cloud Accounting provides 24/7 phone + online support; reviews consistently mention support team knowledge and responsiveness",
         "source_url": "https://www.trustpilot.com/review/sage.com",
-        "country_context": "UK / Global"
+        "country_context": "UK / Global",
+        "seen_at": "2026-04-30",
+        "first_seen_at": "2025-11-02"
       },
       {
         "theme": "Xero — no phone support; AU/UK payroll-period gaps",
@@ -633,7 +866,9 @@
         ],
         "sample_quote": "Absence of phone support is problematic; slow response during busy payroll periods consistently flagged",
         "source_url": "https://au.trustpilot.com/review/www.xero.com",
-        "country_context": "AU / UK"
+        "country_context": "AU / UK",
+        "seen_at": "2026-04-27",
+        "first_seen_at": "2025-08-19"
       },
       {
         "theme": "Xero vs QBO accountant preference (UK)",
@@ -645,7 +880,9 @@
         ],
         "sample_quote": "For most UK SMEs working with an accountant, Xero is still preferred — primarily due to unlimited users at all price points",
         "source_url": "https://www.accountscomparison.com/xero-vs-quickbooks-reddit/",
-        "country_context": "UK"
+        "country_context": "UK",
+        "seen_at": "2026-04-26",
+        "first_seen_at": "2025-09-10"
       },
       {
         "theme": "MYOB AU — cancellation friction (online sub, phone-only cancel)",
@@ -657,7 +894,9 @@
         ],
         "sample_quote": "Subscriptions created online but require a phone call to cancel; customers cite hidden renewal costs",
         "source_url": "https://www.productreview.com.au/listings/myob",
-        "country_context": "Australia"
+        "country_context": "Australia",
+        "seen_at": "2026-04-29",
+        "first_seen_at": "2026-02-14"
       },
       {
         "theme": "QBO better for product businesses + construction (CIS)",
@@ -668,7 +907,9 @@
         ],
         "sample_quote": "QuickBooks Online remains the better choice for product-based businesses, construction firms (CIS), and cost-sensitive businesses",
         "source_url": "https://outbooks.co.uk/xero-vs-quickbooks-uk-smes-comparison/",
-        "country_context": "UK"
+        "country_context": "UK",
+        "seen_at": "2026-04-25",
+        "first_seen_at": "2026-03-22"
       }
     ],
     "intuit_share_of_voice": {
