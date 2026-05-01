@@ -1,0 +1,23 @@
+{
+  "name": "International Market Health",
+  "slug": "international-market-health",
+  "github_pages_url": "https://jeremyfeit-spec.github.io/international-market-health/",
+  "sources": {
+    "market_pulse": {
+      "dashboard_url": "https://jeremyfeit-spec.github.io/international_market_pulse/",
+      "json_url": "https://jeremyfeit-spec.github.io/international_market_pulse/data/competitor_signals.json",
+      "slack_channel_id": "C0AMFGP11FH",
+      "slack_channel_name": "international_weekly_competitor_overview",
+      "scheduled_task_id": "market-pulse-friday-digest"
+    },
+    "regulatory_tracker": {
+      "dashboard_url": "https://jeremyfeit-spec.github.io/regulatory-tracker/",
+      "json_url": "https://jeremyfeit-spec.github.io/regulatory-tracker/data/regulatory_changes.json",
+      "slack_channel_id": "C0B1DJNS48H",
+      "slack_channel_name": "international_weekly_regulatory_overview",
+      "scheduled_task_id": "regulatory-tracker-friday-digest"
+    }
+  },
+  "exec_digest_slack_channel_id": "U0860HNHS80",
+  "exec_digest_slack_channel_name": "DM:jeremy_feit (review-period destination — switch to a real channel after a few weeks)"
+}

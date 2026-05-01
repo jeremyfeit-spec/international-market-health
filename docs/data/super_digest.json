@@ -1,0 +1,16 @@
+{
+  "generated_at": null,
+  "week_start": null,
+  "week_end": null,
+  "review": "<p>This is the seed file. The Friday <code>super-digest-friday</code> scheduled task will overwrite this every Friday at 8:15 AM PT with the week's executive synthesis, KPI rollup, and combined feeds.</p><ul><li>Until the first Friday run, the dashboard falls back to pulling JSON live from the Market Pulse and Regulatory Tracker GitHub Pages.</li><li>If the live fallback also hasn't been wired (those dashboards don't yet expose <code>data/competitor_signals.json</code> and <code>data/regulatory_changes.json</code>), see <a href=\"https://github.com/jeremyfeit-spec/international-market-health#setup\">setup notes</a>.</li></ul>",
+  "competitors": [],
+  "regulatory": [],
+  "kpis": {
+    "competitor_signals": 0,
+    "tier1_signals": 0,
+    "regulatory_changes": 0,
+    "urgent_mandates": 0,
+    "active_markets": 0,
+    "cross_signals": 0
+  }
+}

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>International Market Health — Super Dashboard</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --panel: #11141b;
+    --panel-2: #161a23;
+    --border: #232938;
+    --text: #e6e9ef;
+    --muted: #8a93a6;
+    --accent: #4f8cff;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  header {
+    padding: 28px 32px 12px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  header h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
+  header .meta { color: var(--muted); font-size: 13px; }
+  main { padding: 24px 32px 64px; max-width: 1500px; margin: 0 auto; }
+
+  .review {
+    background: linear-gradient(180deg, #141a26 0%, #11141b 100%);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px 24px; margin-bottom: 20px;
+  }
+  .review h2 { margin: 0 0 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+  .review .body { font-size: 15.5px; line-height: 1.55; }
+  .review .body p { margin: 0 0 10px; }
+  .review .body ul { margin: 6px 0 0; padding-left: 20px; }
+  .review .body li { margin: 4px 0; }
+
+  .kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 22px; }
+  .kpi { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+  .kpi .label { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi .value { font-size: 26px; font-weight: 700; margin-top: 4px; letter-spacing: -0.02em; }
+  .kpi .delta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .filters select, .filters input {
+    background: var(--panel); color: var(--text); border: 1px solid var(--border);
+    border-radius: 8px; padding: 6px 10px; font-size: 13px; outline: none;
+  }
+  .filters input { width: 220px; }
+  .filters .pill {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 999px;
+    padding: 4px 10px; font-size: 12px; color: var(--muted); cursor: pointer; user-select: none;
+  }
+  .filters .pill.active { background: #1d2436; border-color: var(--accent); color: var(--text); }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } .kpis { grid-template-columns: repeat(2, 1fr); } }
+
+  .feed { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .feed h3 { margin: 0; padding: 14px 18px; font-size: 14px;
+    border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+  .feed h3 .count { background: var(--panel-2); color: var(--text); border-radius: 999px;
+    padding: 2px 8px; font-size: 11px; margin-left: auto; }
+  .feed h3 .src { font-size: 11px; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--muted); }
+  .feed .body { max-height: 78vh; overflow-y: auto; }
+
+  .item { padding: 14px 18px; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; }
+  .item .row1 { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+  .item .tag { font-size: 11px; padding: 2px 8px; border-radius: 999px;
+    background: var(--panel-2); color: var(--muted); border: 1px solid var(--border); }
+  .tag.t1 { color: #fca5a5; border-color: #5b1f1f; background: #2a1414; }
+  .tag.t2 { color: #86efac; border-color: #15402a; background: #0f2a1c; }
+  .tag.t3 { color: #fde68a; border-color: #4a3b13; background: #2a230d; }
+  .tag.urgent { color: #fca5a5; border-color: #5b1f1f; background: #2a1414; }
+  .tag.live { color: #86efac; border-color: #15402a; background: #0f2a1c; }
+  .tag.upcoming { color: #93c5fd; border-color: #1e3a5f; background: #102236; }
+  .tag.monitoring { color: #d1d5db; border-color: #2f3645; background: #1a1f2c; }
+  .tag.region { color: #d8b4fe; border-color: #3d1f5b; background: #1d1029; }
+  .item .title { font-size: 14.5px; font-weight: 600; line-height: 1.35; }
+  .item .summary { font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+  .item .meta { font-size: 11.5px; color: var(--muted); margin-top: 6px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .empty { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
+  .loader { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
+  .loader::after { content: " ⏳"; }
+  footer { padding: 16px 32px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+  .links { display: flex; gap: 14px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🌍 International Market Health</h1>
+    <div class="meta" id="metaLine">Loading…</div>
+  </div>
+  <div class="links">
+    <a href="https://jeremyfeit-spec.github.io/international_market_pulse/" target="_blank">Market Pulse →</a>
+    <a href="https://jeremyfeit-spec.github.io/regulatory-tracker/" target="_blank">Regulatory Tracker →</a>
+  </div>
+</header>
+
+<main>
+  <section class="review">
+    <h2>Executive review · This week</h2>
+    <div class="body" id="review">Loading weekly synthesis…</div>
+  </section>
+
+  <section class="kpis" id="kpis">
+    <div class="kpi"><div class="label">Competitor signals</div><div class="value" id="kpiSignals">—</div><div class="delta" id="kpiSignalsDelta">last 7d</div></div>
+    <div class="kpi"><div class="label">Tier-1 (direct)</div><div class="value" id="kpiTier1">—</div><div class="delta">red-circle items</div></div>
+    <div class="kpi"><div class="label">Reg changes</div><div class="value" id="kpiRegs">—</div><div class="delta" id="kpiRegsDelta">new + updated</div></div>
+    <div class="kpi"><div class="label">Mandates &lt;12 mo</div><div class="value" id="kpiUrgent">—</div><div class="delta">upcoming · effective</div></div>
+    <div class="kpi"><div class="label">Markets active</div><div class="value" id="kpiMarkets">—</div><div class="delta">distinct countries</div></div>
+    <div class="kpi"><div class="label">Cross-signals</div><div class="value" id="kpiCross">—</div><div class="delta">comp + reg same market</div></div>
+  </section>
+
+  <div class="filters">
+    <input id="search" type="search" placeholder="Search company, country, keyword…" />
+    <select id="region">
+      <option value="">All regions</option>
+      <option value="EU">EU</option>
+      <option value="UK">UK</option>
+      <option value="APAC">APAC</option>
+      <option value="LatAm">LatAm</option>
+      <option value="Middle East">Middle East</option>
+      <option value="Global">Global</option>
+    </select>
+    <select id="urgency">
+      <option value="">All urgency</option>
+      <option value="urgent">Urgent only</option>
+      <option value="upcoming">Upcoming</option>
+      <option value="live">Live</option>
+    </select>
+    <span class="pill active" data-tier="">All tiers</span>
+    <span class="pill" data-tier="t1">🔴 Tier 1</span>
+    <span class="pill" data-tier="t2">🟢 Tier 2</span>
+    <span class="pill" data-tier="t3">🟡 Tier 3</span>
+  </div>
+
+  <section class="grid">
+    <div class="feed">
+      <h3>📡 Competitor moves <span class="src">Market Pulse</span> <span class="count" id="cCount">—</span></h3>
+      <div class="body" id="competitors"><div class="loader">Loading competitor signals</div></div>
+    </div>
+    <div class="feed">
+      <h3>📜 Regulatory changes <span class="src">Reg Tracker</span> <span class="count" id="rCount">—</span></h3>
+      <div class="body" id="regulatory"><div class="loader">Loading regulatory changes</div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Auto-refreshed Friday 8:15am PT · Data sources:
+  <a href="data/super_digest.json">super_digest.json</a> ·
+  <a href="https://jeremyfeit-spec.github.io/international_market_pulse/data/competitor_signals.json">competitor_signals.json</a> ·
+  <a href="https://jeremyfeit-spec.github.io/regulatory-tracker/data/regulatory_changes.json">regulatory_changes.json</a>
+</footer>
+
+<script>
+  // ---------- Fetch helpers ----------
+  // Primary: pull from this repo's pre-baked super_digest.json (written every Friday).
+  // Fallback: fetch directly from each source dashboard's JSON.
+
+  const SUPER_URL = 'data/super_digest.json';
+  const PULSE_URL = 'https://jeremyfeit-spec.github.io/international_market_pulse/data/competitor_signals.json';
+  const REG_URL   = 'https://jeremyfeit-spec.github.io/regulatory-tracker/data/regulatory_changes.json';
+
+  async function loadJSON(url) {
+    try {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) throw new Error(r.status);
+      return await r.json();
+    } catch (e) { return null; }
+  }
+
+  // ---------- State ----------
+  let state = {
+    competitors: [],   // [{company, region, tier, signal_type, summary, source_url, source_label, date}]
+    regs: [],          // [{country, iso, region, topic, title, summary, status, effective_date, source_url, urgent}]
+    review: null,      // markdown / html string
+    generated: null,   // ISO timestamp
+    weekStart: null, weekEnd: null,
+    filter: { search: '', region: '', urgency: '', tier: '' }
+  };
+
+  // ---------- Render ----------
+  const $ = (id) => document.getElementById(id);
+
+  function tierTag(t) {
+    if (!t) return '';
+    const m = { t1: ['t1','🔴 Tier 1'], t2: ['t2','🟢 Tier 2'], t3: ['t3','🟡 Tier 3'] };
+    const [cls,label] = m[t] || ['','']; if (!cls) return '';
+    return `<span class="tag ${cls}">${label}</span>`;
+  }
+  function statusTag(s) {
+    if (!s) return '';
+    const cls = ({live:'live', upcoming:'upcoming', monitoring:'monitoring'})[s] || '';
+    return `<span class="tag ${cls}">${s}</span>`;
+  }
+  function regionTag(r) { return r ? `<span class="tag region">${r}</span>` : ''; }
+  function escape(s) { return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+  function applyFilter(items, isReg) {
+    const f = state.filter;
+    return items.filter(x => {
+      if (f.region && (x.region !== f.region)) return false;
+      if (!isReg && f.tier && x.tier !== f.tier) return false;
+      if (isReg && f.urgency) {
+        if (f.urgency === 'urgent' && !x.urgent) return false;
+        if (f.urgency === 'upcoming' && x.status !== 'upcoming') return false;
+        if (f.urgency === 'live' && x.status !== 'live') return false;
+      }
+      if (f.search) {
+        const q = f.search.toLowerCase();
+        const blob = JSON.stringify(x).toLowerCase();
+        if (!blob.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+
+  function renderCompetitors() {
+    const items = applyFilter(state.competitors, false);
+    $('cCount').textContent = items.length;
+    if (!items.length) { $('competitors').innerHTML = '<div class="empty">No competitor signals match your filters.</div>'; return; }
+    $('competitors').innerHTML = items.map(x => `
+      <div class="item">
+        <div class="row1">
+          ${tierTag(x.tier)} ${regionTag(x.region)}
+          ${x.signal_type ? `<span class="tag">${escape(x.signal_type)}</span>` : ''}
+        </div>
+        <div class="title">${escape(x.company || '')}${x.headline ? ' · ' + escape(x.headline) : ''}</div>
+        <div class="summary">${escape(x.summary || '')}</div>
+        <div class="meta">
+          ${x.date ? `<span>📅 ${escape(x.date)}</span>` : ''}
+          ${x.source_url ? `<a href="${escape(x.source_url)}" target="_blank">🔗 ${escape(x.source_label || 'source')}</a>` : ''}
+        </div>
+      </div>`).join('');
+  }
+
+  function renderRegs() {
+    const items = applyFilter(state.regs, true);
+    $('rCount').textContent = items.length;
+    if (!items.length) { $('regulatory').innerHTML = '<div class="empty">No regulatory changes match your filters.</div>'; return; }
+    $('regulatory').innerHTML = items.map(x => `
+      <div class="item">
+        <div class="row1">
+          ${x.urgent ? '<span class="tag urgent">⚠ urgent</span>' : ''}
+          ${statusTag(x.status)} ${regionTag(x.region)}
+          ${x.topic ? `<span class="tag">${escape(x.topic)}</span>` : ''}
+        </div>
+        <div class="title">${escape(x.country || x.iso || '')}${x.title ? ' · ' + escape(x.title) : ''}</div>
+        <div class="summary">${escape(x.summary || '')}</div>
+        <div class="meta">
+          ${x.effective_date ? `<span>⏱ effective ${escape(x.effective_date)}</span>` : ''}
+          ${x.source_url ? `<a href="${escape(x.source_url)}" target="_blank">🔗 source</a>` : ''}
+        </div>
+      </div>`).join('');
+  }
+
+  function renderKPIs() {
+    $('kpiSignals').textContent = state.competitors.length;
+    $('kpiTier1').textContent = state.competitors.filter(x => x.tier === 't1').length;
+    $('kpiRegs').textContent = state.regs.length;
+    $('kpiUrgent').textContent = state.regs.filter(x => x.urgent).length;
+    const markets = new Set([
+      ...state.competitors.map(x => x.region).filter(Boolean),
+      ...state.regs.map(x => x.country).filter(Boolean),
+    ]);
+    $('kpiMarkets').textContent = markets.size;
+    // cross-signals: country/region appears in both feeds
+    const compRegions = new Set(state.competitors.map(x => (x.country || x.region || '').toLowerCase()));
+    const cross = state.regs.filter(x => compRegions.has((x.country||'').toLowerCase()) || compRegions.has((x.region||'').toLowerCase()));
+    $('kpiCross').textContent = cross.length;
+  }
+
+  function renderReview() {
+    if (!state.review) {
+      $('review').textContent = 'No executive review yet. Will populate Fridays at 8:15 AM PT after both source jobs finish.';
+      return;
+    }
+    // accept either pre-rendered HTML or markdown-lite (paragraphs + - bullets)
+    if (/<[a-z][\s\S]*>/i.test(state.review)) { $('review').innerHTML = state.review; return; }
+    const lines = state.review.split('\n');
+    let html = '', inList = false;
+    for (const ln of lines) {
+      const m = ln.match(/^\s*[-*]\s+(.*)/);
+      if (m) { if (!inList) { html += '<ul>'; inList = true; } html += `<li>${escape(m[1])}</li>`; }
+      else if (ln.trim() === '') { if (inList) { html += '</ul>'; inList = false; } }
+      else { if (inList) { html += '</ul>'; inList = false; } html += `<p>${escape(ln)}</p>`; }
+    }
+    if (inList) html += '</ul>';
+    $('review').innerHTML = html;
+  }
+
+  function renderMeta() {
+    const parts = [];
+    if (state.weekStart && state.weekEnd) parts.push(`Week of ${state.weekStart} – ${state.weekEnd}`);
+    if (state.generated) parts.push(`Updated ${new Date(state.generated).toLocaleString()}`);
+    $('metaLine').textContent = parts.join(' · ') || 'Live';
+  }
+
+  function renderAll() { renderReview(); renderKPIs(); renderCompetitors(); renderRegs(); renderMeta(); }
+
+  // ---------- Wire filters ----------
+  $('search').addEventListener('input', e => { state.filter.search = e.target.value; renderCompetitors(); renderRegs(); });
+  $('region').addEventListener('change', e => { state.filter.region = e.target.value; renderCompetitors(); renderRegs(); });
+  $('urgency').addEventListener('change', e => { state.filter.urgency = e.target.value; renderRegs(); });
+  document.querySelectorAll('.pill').forEach(p => p.addEventListener('click', () => {
+    document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    state.filter.tier = p.dataset.tier; renderCompetitors();
+  }));
+
+  // remember filter choices
+  try {
+    const saved = JSON.parse(localStorage.getItem('imh.filter') || '{}');
+    if (saved.search) { $('search').value = saved.search; state.filter.search = saved.search; }
+    if (saved.region) { $('region').value = saved.region; state.filter.region = saved.region; }
+    if (saved.urgency) { $('urgency').value = saved.urgency; state.filter.urgency = saved.urgency; }
+  } catch (e) {}
+  window.addEventListener('beforeunload', () => {
+    try { localStorage.setItem('imh.filter', JSON.stringify(state.filter)); } catch (e) {}
+  });
+
+  // ---------- Boot ----------
+  (async () => {
+    // Try the baked super-digest first
+    const sd = await loadJSON(SUPER_URL);
+    if (sd) {
+      state.competitors = sd.competitors || [];
+      state.regs = sd.regulatory || [];
+      state.review = sd.review || null;
+      state.generated = sd.generated_at || null;
+      state.weekStart = sd.week_start; state.weekEnd = sd.week_end;
+      renderAll(); return;
+    }
+    // Fallback: live-pull from both source dashboards
+    const [pulse, reg] = await Promise.all([loadJSON(PULSE_URL), loadJSON(REG_URL)]);
+    if (pulse && Array.isArray(pulse.signals)) state.competitors = pulse.signals;
+    if (reg && Array.isArray(reg.changes)) state.regs = reg.changes;
+    if (pulse?.generated_at) state.generated = pulse.generated_at;
+    state.review = '<p><em>Live fallback view — Friday\'s synthesis hasn\'t run yet, so this is the raw data from both source dashboards.</em></p>';
+    renderAll();
+  })();
+</script>
+</body>
+</html>
