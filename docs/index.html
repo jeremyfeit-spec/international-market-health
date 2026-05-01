@@ -158,6 +158,18 @@
   .loader { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
   .loader::after { content: " ⏳"; }
   footer { padding: 16px 32px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+  .poc-badge {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #fde68a;
+    background: rgba(234, 179, 8, 0.12);
+    border: 1px solid rgba(234, 179, 8, 0.4);
+    padding: 5px 12px;
+    border-radius: 999px;
+    cursor: help;
+    white-space: nowrap;
+  }
   .links { display: flex; gap: 10px 16px; flex-wrap: wrap; align-items: center; }
   .links a {
     font-size: 12px;
@@ -180,11 +192,13 @@
     <h1>🌍 International Market Health</h1>
     <div class="meta" id="metaLine">Loading…</div>
   </div>
+  <div class="poc-badge" title="This dashboard is an early proof of concept. Data sources, scoring weights, and VOC coverage are still being calibrated.">
+    🧪 Proof of Concept · not production-ready
+  </div>
   <div class="links">
     <span class="label">Related dashboards</span>
     <a href="https://jeremyfeit-spec.github.io/international_market_pulse/" target="_blank">Market Pulse</a>
     <a href="https://jeremyfeit-spec.github.io/regulatory-tracker/" target="_blank">Regulatory Tracker</a>
-    <a href="https://jeremyfeit-spec.github.io/einvoicing-tracker/" target="_blank">E-Invoicing Tracker</a>
     <a href="https://jeremyfeit-spec.github.io/project-confidence/" target="_blank">Country Comparison</a>
   </div>
 </header>
