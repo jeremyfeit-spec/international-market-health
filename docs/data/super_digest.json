@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T22:56:38Z",
+  "generated_at": "2026-05-01T23:02:51Z",
   "week_start": "2026-04-24",
   "week_end": "2026-05-01",
   "review": "<p><strong>Health Score: 2.9 / 10</strong> (▼ 1.7 vs last week — Sage Tier-1 M&amp;A, 8 regulatory deadlines in the 90-day hot zone, and a UK cross-signal stacking competitor + regulator on the same accountant base).</p><p><strong>For the product team this week:</strong></p><ul><li><strong>Italy SDI v1.9.1 ships 15 May — 14 days out.</strong> Confirm QBO compliance backlog is on track for VAT-group and sports-worker updates. This is the closest hard deadline in any priority market.</li><li><strong>Sage acquired Doyen AI — implementation speed becomes a competitive feature.</strong> Sage is now positioned to compress Intacct / Sage 200 go-lives from weeks to days in the same UK/EU/NA mid-market QBO Advanced is climbing into. Pressure-test our onboarding/data-migration narrative against this thesis before next QBR.</li><li><strong>Canada paper drop-box closure (30 Apr) creates an immediate accountant-led migration moment.</strong> Every Canadian SMB without a digital workflow is now forced into one — short window to capture them. Worth a fast assist-channel push.</li><li><strong>VOC: Intuit 4.4★ vs peer-set avg 4.43★ on Trustpilot UK.</strong> Negative themes clustering on 2026 price increases (UK charity 70% YoY) and the mandatory July payroll-tax-filing change. Sage and FreeAgent both 4.6★ — support reputation is the gap.</li></ul><details class=\"more-context\"><summary>More context — secondary signals &amp; quiet markets</summary><ul><li><strong>Vertex restructuring (9% headcount) toward agentic tax.</strong> Confirms the AI-as-packaging trend Sage's Doyen deal embodies. Avalara and Sovos likely to follow within the quarter.</li><li><strong>Airwallex × Arsenal campaign (Spike Lee–directed, 2-min film).</strong> Largest brand spend in Airwallex's history, running through the PL run-in and 2026 World Cup. UK/EU B2B-tooling overlap with QBO Money/Bill Pay — track for share-of-voice impact, not immediate product action.</li><li><strong>Other e-invoicing dates on the horizon:</strong> Australia Peppol target (1 Jul), France PDP→PA pilot (1 Sep), Spain AEAT draft (1 Oct). Five priority markets need product-side action this calendar year — sequence them now even though only Italy is &lt;30 days.</li><li><strong>Cross-signals — UK is the loudest market this week.</strong> Sage M&amp;A and Airwallex Arsenal lead in UK alongside the UK confirming its 2029 B2B/B2G e-invoicing mandate. Three forces pulling on the same accountant base; second-order effect on partner attention.</li><li><strong>Quiet markets:</strong> Germany and Spain saw regulatory motion only — no competitor moves. Watch DATEV and Holvi/Qonto for response in coming weeks.</li></ul></details>",
@@ -807,8 +807,7 @@
         "sentiment": "negative",
         "target_company": "QuickBooks",
         "platforms": [
-          "Trustpilot AU",
-          "Reddit"
+          "Trustpilot AU"
         ],
         "sample_quote": "AU users report 50% increases landing without warning; long-time customers say preset configurations get reset and they can't change to a lower plan without losing data",
         "source_url": "https://au.trustpilot.com/review/quickbooks.intuit.com/au",
@@ -840,7 +839,7 @@
         "sample_quote": "Repeated technical problems on T4 processing, bill management; customers report endless loops between departments with reps refusing to escalate",
         "source_url": "https://www.trustpilot.com/review/quickbooks.ca",
         "country_context": "Canada",
-        "seen_at": "2026-04-28",
+        "seen_at": "2026-04-10",
         "first_seen_at": "2026-03-04"
       },
       {
@@ -854,7 +853,7 @@
         "sample_quote": "Sage Business Cloud Accounting provides 24/7 phone + online support; reviews consistently mention support team knowledge and responsiveness",
         "source_url": "https://www.trustpilot.com/review/sage.com",
         "country_context": "UK / Global",
-        "seen_at": "2026-04-30",
+        "seen_at": "2026-04-08",
         "first_seen_at": "2025-11-02"
       },
       {
@@ -867,7 +866,7 @@
         "sample_quote": "Absence of phone support is problematic; slow response during busy payroll periods consistently flagged",
         "source_url": "https://au.trustpilot.com/review/www.xero.com",
         "country_context": "AU / UK",
-        "seen_at": "2026-04-27",
+        "seen_at": "2026-04-05",
         "first_seen_at": "2025-08-19"
       },
       {
@@ -881,7 +880,7 @@
         "sample_quote": "For most UK SMEs working with an accountant, Xero is still preferred — primarily due to unlimited users at all price points",
         "source_url": "https://www.accountscomparison.com/xero-vs-quickbooks-reddit/",
         "country_context": "UK",
-        "seen_at": "2026-04-26",
+        "seen_at": "2026-04-12",
         "first_seen_at": "2025-09-10"
       },
       {
@@ -895,7 +894,7 @@
         "sample_quote": "Subscriptions created online but require a phone call to cancel; customers cite hidden renewal costs",
         "source_url": "https://www.productreview.com.au/listings/myob",
         "country_context": "Australia",
-        "seen_at": "2026-04-29",
+        "seen_at": "2026-04-15",
         "first_seen_at": "2026-02-14"
       },
       {
@@ -908,7 +907,7 @@
         "sample_quote": "QuickBooks Online remains the better choice for product-based businesses, construction firms (CIS), and cost-sensitive businesses",
         "source_url": "https://outbooks.co.uk/xero-vs-quickbooks-uk-smes-comparison/",
         "country_context": "UK",
-        "seen_at": "2026-04-25",
+        "seen_at": "2026-03-22",
         "first_seen_at": "2026-03-22"
       }
     ],

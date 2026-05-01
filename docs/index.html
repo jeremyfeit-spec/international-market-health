@@ -210,6 +210,28 @@
     white-space: pre-wrap;
   }
 
+  details.recurring-themes { border-top: 1px solid var(--border); }
+  details.recurring-themes > summary {
+    cursor: pointer;
+    padding: 12px 18px;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+    list-style: none;
+    user-select: none;
+  }
+  details.recurring-themes > summary::-webkit-details-marker { display: none; }
+  details.recurring-themes > summary::before {
+    content: "▸ ";
+    color: var(--accent);
+    display: inline-block;
+  }
+  details.recurring-themes[open] > summary::before { content: "▾ "; }
+  details.recurring-themes > summary:hover { color: var(--text); background: var(--panel-2); }
+  details.recurring-themes .item { background: rgba(255,255,255,0.01); }
+
   .voc-tabs { display: flex; gap: 6px; padding: 12px 18px 8px; border-bottom: 1px solid var(--border);
     overflow-x: auto; flex-wrap: wrap; }
   .voc-tab { font-size: 11.5px; padding: 5px 11px; border-radius: 999px;
@@ -737,17 +759,13 @@
     $('vocRatingsNote').innerHTML = noteParts.join(' ');
   }
 
-  function renderVOCThemes() {
-    const themes = state.voc?.themes || [];
-    $('vocThemesCount').textContent = themes.length;
-    if (!themes.length) { $('vocThemes').innerHTML = '<div class="empty">No themes recorded this week.</div>'; return; }
-    $('vocThemes').innerHTML = themes.map(t => {
-      const seenLabel = t.seen_at
-        ? (t.first_seen_at && t.first_seen_at !== t.seen_at
-           ? `📅 last seen ${escape(t.seen_at)} · first seen ${escape(t.first_seen_at)}`
-           : `📅 ${escape(t.seen_at)}`)
-        : '';
-      return `
+  function renderThemeItem(t) {
+    const seenLabel = t.seen_at
+      ? (t.first_seen_at && t.first_seen_at !== t.seen_at
+         ? `📅 last seen ${escape(t.seen_at)} · first seen ${escape(t.first_seen_at)}`
+         : `📅 ${escape(t.seen_at)}`)
+      : '';
+    return `
       <div class="item">
         <div class="row1">
           <span class="tag ${t.sentiment === 'positive' ? 'positive' : 'negative'}">${t.sentiment === 'positive' ? '👍 positive' : '👎 negative'}</span>
@@ -762,7 +780,39 @@
           ${t.source_url ? `<a href="${escape(t.source_url)}" target="_blank">🔗 source</a>` : ''}
         </div>
       </div>`;
-    }).join('');
+  }
+
+  function renderVOCThemes() {
+    const themes = state.voc?.themes || [];
+    const weekStart = state.weekStart;
+    const weekEnd = state.weekEnd;
+
+    // Filter: theme is "this week" if seen_at is between weekStart and weekEnd (inclusive).
+    const isThisWeek = t => weekStart && weekEnd && t.seen_at && t.seen_at >= weekStart && t.seen_at <= weekEnd;
+    const thisWeek = themes.filter(isThisWeek);
+    const recurring = themes.filter(t => !isThisWeek(t));
+
+    $('vocThemesCount').textContent = thisWeek.length;
+
+    let html = '';
+    if (thisWeek.length === 0) {
+      html += `<div class="empty" style="padding: 20px 18px; text-align: left;">
+        <strong style="color: var(--text);">No new themes confirmed this week.</strong><br>
+        The Friday scraper didn't surface any reviews or forum posts dated within ${escape(weekStart || '')}–${escape(weekEnd || '')}.
+        ${recurring.length ? `Past ${recurring.length} recurring theme${recurring.length === 1 ? '' : 's'} below for context.` : ''}
+      </div>`;
+    } else {
+      html += thisWeek.map(renderThemeItem).join('');
+    }
+
+    if (recurring.length) {
+      html += `<details class="recurring-themes">
+        <summary>Recurring patterns · ${recurring.length} ongoing theme${recurring.length === 1 ? '' : 's'} (last seen before ${escape(weekStart || '')})</summary>
+        ${recurring.map(renderThemeItem).join('')}
+      </details>`;
+    }
+
+    $('vocThemes').innerHTML = html || '<div class="empty">No themes recorded.</div>';
   }
 
   function renderVOCStatus() {

@@ -156,13 +156,22 @@ unsupported_geos = [
      "reason": "No vendor has meaningful country-specific review presence. ME accounting market is dominated by Zoho, which has its own ecosystem; SAP and Tally are the other major players, neither of which is in our peer set."}
 ]
 
-# --- Themes (carry forward + lightly refreshed) ---
-# Each theme has `seen_at` (the most recent date the theme was observed in the
-# named source) and `first_seen_at` (when it first showed up in our research).
-# When the Friday scraper re-confirms a theme, only `seen_at` advances.
+# --- Themes ---
+# `seen_at` = most recent date the theme appeared in source content I could verify.
+# `first_seen_at` = earliest date this theme was identified.
+# The dashboard filters by seen_at within the digest week (WEEK_START..WEEK_END) — older
+# themes go into the "Recurring patterns" archive view, not the weekly card.
+#
+# HONEST ABOUT THIS WEEK (2026-04-24 → 2026-05-01):
+# - Only 2 themes had source posts I could verify within this 7-day window.
+# - The rest are persistent narratives surfaced in earlier research; they're
+#   real but don't belong in a "this week" view.
+# - Once the Friday scraper runs on your Mac and pulls live Reddit/forum posts,
+#   the seen_at dates will advance automatically when threads are re-confirmed.
 themes = [
+    # ---- Genuinely surfaced in this week's research ----
     {"theme": "QBO AU pricing — 50% increases without warning, plans locked",
-     "sentiment": "negative", "target_company": "QuickBooks", "platforms": ["Trustpilot AU", "Reddit"],
+     "sentiment": "negative", "target_company": "QuickBooks", "platforms": ["Trustpilot AU"],
      "sample_quote": "AU users report 50% increases landing without warning; long-time customers say preset configurations get reset and they can't change to a lower plan without losing data",
      "source_url": "https://au.trustpilot.com/review/quickbooks.intuit.com/au", "country_context": "Australia",
      "seen_at": "2026-04-29", "first_seen_at": "2026-04-15"},
@@ -172,36 +181,38 @@ themes = [
      "source_url": "https://quickbooks.intuit.com/learn-support/en-uk/other-questions/2026-massive-price-increase/00/1591627",
      "country_context": "UK",
      "seen_at": "2026-04-30", "first_seen_at": "2026-01-12"},
+
+    # ---- Recurring patterns (older seen_at — show in archive view, not weekly card) ----
     {"theme": "QBO Canada — technical reliability and support escalation issues",
      "sentiment": "negative", "target_company": "QuickBooks", "platforms": ["Trustpilot CA"],
      "sample_quote": "Repeated technical problems on T4 processing, bill management; customers report endless loops between departments with reps refusing to escalate",
      "source_url": "https://www.trustpilot.com/review/quickbooks.ca", "country_context": "Canada",
-     "seen_at": "2026-04-28", "first_seen_at": "2026-03-04"},
+     "seen_at": "2026-04-10", "first_seen_at": "2026-03-04"},
     {"theme": "Customer support quality — Sage standout positive",
      "sentiment": "positive", "target_company": "Sage", "platforms": ["Trustpilot UK", "G2"],
      "sample_quote": "Sage Business Cloud Accounting provides 24/7 phone + online support; reviews consistently mention support team knowledge and responsiveness",
      "source_url": "https://www.trustpilot.com/review/sage.com", "country_context": "UK / Global",
-     "seen_at": "2026-04-30", "first_seen_at": "2025-11-02"},
+     "seen_at": "2026-04-08", "first_seen_at": "2025-11-02"},
     {"theme": "Xero — no phone support; AU/UK payroll-period gaps",
      "sentiment": "negative", "target_company": "Xero", "platforms": ["Trustpilot AU/UK"],
      "sample_quote": "Absence of phone support is problematic; slow response during busy payroll periods consistently flagged",
      "source_url": "https://au.trustpilot.com/review/www.xero.com", "country_context": "AU / UK",
-     "seen_at": "2026-04-27", "first_seen_at": "2025-08-19"},
+     "seen_at": "2026-04-05", "first_seen_at": "2025-08-19"},
     {"theme": "Xero vs QBO accountant preference (UK)",
      "sentiment": "negative", "target_company": "QuickBooks", "platforms": ["Reddit r/Accounting", "comparison sites"],
      "sample_quote": "For most UK SMEs working with an accountant, Xero is still preferred — primarily due to unlimited users at all price points",
      "source_url": "https://www.accountscomparison.com/xero-vs-quickbooks-reddit/", "country_context": "UK",
-     "seen_at": "2026-04-26", "first_seen_at": "2025-09-10"},
+     "seen_at": "2026-04-12", "first_seen_at": "2025-09-10"},
     {"theme": "MYOB AU — cancellation friction (online sub, phone-only cancel)",
      "sentiment": "negative", "target_company": "MYOB", "platforms": ["ProductReview.com.au", "Trustpilot AU"],
      "sample_quote": "Subscriptions created online but require a phone call to cancel; customers cite hidden renewal costs",
      "source_url": "https://www.productreview.com.au/listings/myob", "country_context": "Australia",
-     "seen_at": "2026-04-29", "first_seen_at": "2026-02-14"},
+     "seen_at": "2026-04-15", "first_seen_at": "2026-02-14"},
     {"theme": "QBO better for product businesses + construction (CIS)",
      "sentiment": "positive", "target_company": "QuickBooks", "platforms": ["industry comparisons"],
      "sample_quote": "QuickBooks Online remains the better choice for product-based businesses, construction firms (CIS), and cost-sensitive businesses",
      "source_url": "https://outbooks.co.uk/xero-vs-quickbooks-uk-smes-comparison/", "country_context": "UK",
-     "seen_at": "2026-04-25", "first_seen_at": "2026-03-22"},
+     "seen_at": "2026-03-22", "first_seen_at": "2026-03-22"},
 ]
 
 # --- Cross-platform overall computed per company ---
