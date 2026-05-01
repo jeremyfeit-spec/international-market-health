@@ -81,6 +81,32 @@
   .review .body p { margin: 0 0 10px; }
   .review .body ul { margin: 6px 0 0; padding-left: 20px; }
   .review .body li { margin: 4px 0; }
+  .review .body details.more-context {
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+  .review .body details.more-context summary {
+    cursor: pointer;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+    list-style: none;
+    user-select: none;
+    padding: 4px 0;
+  }
+  .review .body details.more-context summary::-webkit-details-marker { display: none; }
+  .review .body details.more-context summary::before {
+    content: "▸ ";
+    color: var(--accent);
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+  .review .body details.more-context[open] summary::before { content: "▾ "; }
+  .review .body details.more-context summary:hover { color: var(--text); }
+  .review .body details.more-context ul { margin-top: 8px; }
 
   .kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 22px; }
   .kpi { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
