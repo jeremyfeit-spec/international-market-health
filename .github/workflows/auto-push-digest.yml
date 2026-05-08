@@ -1,0 +1,42 @@
+name: Auto-push digest data
+
+on:
+  # Run at 8:30 AM PT (16:30 UTC) every Friday — after Claude writes the digest files
+  schedule:
+    - cron: '30 16 * * 5'
+  # Also allow manual trigger from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  commit-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Use a PAT so the push triggers GitHub Pages rebuild
+          token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+          fetch-depth: 0
+
+      - name: Pull latest local changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Fetch what's on the remote
+          git fetch origin main
+
+      - name: Check for uncommitted digest data
+        id: check
+        run: |
+          # If the remote is behind the working tree (Claude staged but couldn't push),
+          # the diff will show changes. We just need to commit whatever is staged/unstaged
+          # in docs/data and push.
+          git diff --quiet docs/data || echo "changes=true" >> $GITHUB_OUTPUT
+          git diff --cached --quiet docs/data || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if data changed
+        if: steps.check.outputs.changes == 'true'
+        run: |
+          git add docs/data
+          git commit -m "auto-push: weekly digest $(date -u +%Y-%m-%d)"
+          git push origin main
