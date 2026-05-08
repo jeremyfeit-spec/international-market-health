@@ -963,22 +963,22 @@
   "feet_on_the_ground": [],
   "intuit_moves": [],
   "health_score": {
-    "score": 2.9,
-    "delta_vs_last_week": -1.7,
+    "score": 2.1,
+    "delta_vs_last_week": -0.5,
     "components": {
-      "competitor_pressure": -0.75,
+      "competitor_pressure": -1.15,
       "regulatory_pressure": -1.0,
-      "cross_signal_magnifier": -0.4,
+      "cross_signal_magnifier": -0.8,
       "voc_sentiment": 0.0,
       "intuit_offensive_moves": 0,
       "feet_on_the_ground": 0.0
     },
     "explainers": [
-      "1 Tier-1 competitor move in priority markets",
-      "8 regulatory deadlines within 90 days",
-      "competitor + regulator both moved in 1 market"
+      "2 Tier-1 competitor moves in priority markets (Vertex/Brinta LATAM, Sage/Doyen AI UK)",
+      "13 regulatory deadlines urgent within 12 months across all 12 priority markets",
+      "2 cross-signals: competitor + regulator both moved in Brazil/LATAM and Italy"
     ],
-    "why_it_moved": "Score moved because: 1 Tier-1 competitor move in priority markets; 8 regulatory deadlines within 90 days; competitor + regulator both moved in 1 market",
+    "why_it_moved": "Score moved because: 2 Tier-1 competitor moves in priority markets; 13 urgent regulatory deadlines; 2 cross-signals (Brazil + Italy both had competitor and regulatory motion this week)",
     "scale_min": 0,
     "scale_max": 10,
     "neutral_baseline": 5.0,
@@ -1123,6 +1123,20 @@
         "regulatory_changes": 13,
         "urgent_mandates": 11,
         "cross_signals": 1
+      }
+    },
+    {
+      "week_end": "2026-05-08",
+      "score": 2.1,
+      "headline": "Vertex acquires Brinta (LATAM compliance beachhead); Italy SDI v1.9.1 lands in 7 days; 2 cross-signals in Brazil and Italy.",
+      "why_it_moved": "Score moved because: 2 Tier-1 competitor moves in priority markets; 13 urgent regulatory deadlines; 2 cross-signals (Brazil + Italy both had competitor and regulatory motion this week)",
+      "data_quality": "live",
+      "kpis": {
+        "competitor_signals": 7,
+        "tier1_signals": 2,
+        "regulatory_changes": 13,
+        "urgent_mandates": 13,
+        "cross_signals": 2
       }
     }
   ],
